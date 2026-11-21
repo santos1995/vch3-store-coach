@@ -1,0 +1,11 @@
+# Hackathon data pack: raw CSVs / zips / excel never enter this repo, only small derived aggregates do
+*.csv
+*.zip
+*.xlsx
+# Secrets and local files
+.env
+*.key
+*.pem
+secrets.*
+__pycache__/
+.DS_Store
