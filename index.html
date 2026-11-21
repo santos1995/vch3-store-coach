@@ -140,7 +140,7 @@ function storeAlerts(sid){
     var days = s.understaffed_busy_days.map(dt).join(", ");
     out.push({ sev:"bad", t:"Busy days ran short-handed",
       why:"On " + s.understaffed_busy_days.length + " of the last 28 days footfall was in the store's top quartile but floor count was below its own median (" + days + ").",
-      act:"Action (today): the store lead sets next week's roster so the full team is on the floor on days matching this busy pattern, and nobody's weekly off falls on those days.",
+      act:"Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
       rs:s.understaffed_busy_days.length * (s.bills28 / 28) * 0.1 * avgBill, rsHow:"assumption, not observed: 10% of average daily sales per short-handed busy day" });
   }
   if(ip != null && ipp != null && ip < 0.95 * ipp){
@@ -212,7 +212,7 @@ function buildBrief(){
     h += "</div>";
   });
   h += "<h3>Week-later outcome check (historical replay)</h3><p class='muted'>18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.</p>";
-  rows.forEach(function(r){var f=r.s.followup||{},b=f.before,a=f.after;if(b&&a&&b.conversion!=null&&a.conversion!=null){
+  rows.forEach(function(r){if((r.s.dq||[]).length){h+="<p><b>"+r.sid+"</b>: outcome withheld until the data issue is checked.</p>";return;}var f=r.s.followup||{},b=f.before,a=f.after;if(b&&a&&b.conversion!=null&&a.conversion!=null){
     h += "<p><b>"+r.sid+"</b>: conversion "+pct(b.conversion)+" → "+pct(a.conversion)+" ("+((a.conversion-b.conversion)*100).toFixed(1)+" percentage points); items/bill "+num(b.ipb)+" → "+num(a.ipb)+". "+(a.conversion>b.conversion?"Conversion improved.":"No conversion improvement.")+"</p>";
   }});
   document.getElementById("briefOut").innerHTML = h;
@@ -230,6 +230,7 @@ function buildBrief(){
 function med(arr){ arr = arr.slice().sort(function(a,b){ return a-b; }); return arr.length ? arr[Math.floor(arr.length/2)] : null; }
 function buildTeam(sid){
   var s = AGG.stores[sid];
+  if((s.dq||[]).length){document.getElementById("teamOut").innerHTML="<p>Coaching withheld: store data must be checked first. Store lead, verify billing and footfall today.</p>";return;}
   var team = (s.team || []).slice().sort(function(a,b){ return b.bills - a.bills; });
   if(!team.length){ document.getElementById("teamOut").innerHTML = "<p class='muted'>No rostered salespeople in the last 28 days.</p>"; return; }
   var eligibleTeam=team.filter(function(t){return t.days_worked>=7&&t.bills>=10;});
@@ -242,7 +243,7 @@ function buildTeam(sid){
     num(mBpd) + " bills/day, " + num(mIpb) + " items/bill" + (mAtt != null ? ", " + pct(mAtt,0) + " attach on sherwani" : "") + ".</p>";
   h += "<table><tr><th>Salesperson</th><th>Days</th><th>Bills/day</th><th>Items/bill</th><th>Attach (sherwani set)</th><th>Disc %</th><th>Today's one action</th></tr>";
   team.forEach(function(t){
-    var act, cls = "";
+    var act, cls = "", roleMetric="ipb";
     var peers=team.filter(function(x){return x.id!==t.id&&x.days_worked>=7&&x.bills>=10;});
     var role=peers.slice().sort(function(a,b){return (b.ipb||0)-(a.ipb||0);})[0];
     var repeatPeers=peers.filter(function(x){return x.repeat_eligible>=20&&x.repeat30!=null;});
@@ -251,7 +252,7 @@ function buildTeam(sid){
       act="Today: review five customer conversations with the store lead; too few shifts or bills for reliable coaching.";
     } else if(t.repeat_eligible>=20 && repeatMed!=null && t.repeat30 < repeatMed*0.7){
       act="Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate "+pct(t.repeat30)+" versus same-store peers "+pct(repeatMed)+".";
-      role=repeatPeers.sort(function(a,b){return b.repeat30-a.repeat30;})[0]||role;
+      role=repeatPeers.sort(function(a,b){return b.repeat30-a.repeat30;})[0]||role;roleMetric="repeat";
     } else if(t.disc_pct > avgDisc + 3){
       act = "Keep discounts under " + (avgDisc + 3).toFixed(1) + "% today; anything above needs the store lead's nod. Usual habit: " + t.disc_pct.toFixed(1) + "% vs store " + avgDisc.toFixed(1) + "%.";
     } else if(t.sherwani_bills>=5 && mAtt != null && t.attach_rate != null && t.attach_rate < mAtt - 0.1){
@@ -271,7 +272,7 @@ function buildTeam(sid){
                  : "On track across the three levers. Keep the standard today; no coaching note needed.";
       cls = " style='background:#f4faf5'";
     }
-    if(role){var suffix=" Learn with "+role.name+" from this store today."; var words=act.split(/\s+/);act=words.slice(0,60-suffix.trim().split(/\s+/).length).join(" ")+suffix;}
+    if(role){var suffix=roleMetric==="repeat"?" Same-store peer "+role.name+": "+pct(role.repeat30)+" repeat (yours "+pct(t.repeat30)+").":" Same-store peer "+role.name+": "+num(role.ipb)+" items/bill (yours "+num(t.ipb)+")."; var words=act.split(/\s+/);act=words.slice(0,60-suffix.trim().split(/\s+/).length).join(" ")+suffix;}
     h += "<tr" + cls + "><td><b>" + esc(t.name) + "</b><br><span class='muted'>" + t.id + "</span></td><td>" + t.days_worked + "</td><td>" + num(t.bpd,1) + "</td><td>" + num(t.ipb) + "</td><td>" + (t.attach_rate == null ? "n/a" : pct(t.attach_rate,0)) + "</td><td>" + t.disc_pct.toFixed(1) + "%</td><td>" + esc(act) + "</td></tr>";
   });
   h += "</table><p class='muted'>Peer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words.</p>";
