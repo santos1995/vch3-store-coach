@@ -2,7 +2,7 @@
 
 Live app: https://santos1995.github.io/vch3-store-coach/
 
-Demo highlights (44 seconds, silent screen recording): https://youtu.be/4NJAU0OIFzQ
+Demo highlights (42 seconds, silent screen recording): https://youtu.be/Uz93ra6WelA
 
 Logic explanation guide (English PDF): [Manyavar-Store-Coach-Logic-English.pdf](./Manyavar-Store-Coach-Logic-English.pdf)
 
