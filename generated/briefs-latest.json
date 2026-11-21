@@ -1,0 +1,509 @@
+{
+ "generated_at_utc": "2026-11-21T09:18:15.157Z",
+ "data_as_of": "2026-10-31",
+ "note": "Rule-based generation from the fixed synthetic snapshot; execution time is the run time, not new data.",
+ "run_environment": "unattended, GitHub Actions",
+ "managers": [
+  {
+   "manager": "Rakesh Srivastava",
+   "id": "AM-01",
+   "brief_text": "Rakesh Srivastava (Lucknow) - brief for Sat 31 Oct 2026, generated automatically by the scheduled job (same rules as the in-browser brief). 4 of 4 stores need attention. Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.\nThis week's assigned issues (at most 5, ranked by rough rupees at stake):\nLKO-02 - More bills Walk-ins are not converting - Rs 3,20,367 at stake (rough)\nLKO-03 - More bills Walk-ins are not converting - Rs 1,38,627 at stake (rough)\nLKO-02 - More bills An experienced seller is no longer on the roster - Rs 84,367 at stake (rough)\nLKO-03 - Bigger baskets Baskets are lighter than peer stores - Rs 68,027 at stake (rough)\nLKO-04 - More bills Busy days ran short-handed - Rs 32,652 at stake (rough)\nAssignments are retained for this snapshot week in the repo state file (state/weekly.json). Rs figures are rough scenarios, not measured losses. +4 lower-priority diagnostics remain in the store cards below; they are not assigned this week.\n#1 LKO-03 · Lucknow (A) open team actionsConversion 10.5% (peers 12.2%)Items/bill 1.69 (peers 1.82)Repeat-30 1.0% (peers 1.8%)Revenue 28d Rs 7,82,030More bills Walk-ins are not convertingNon-event conversion 10.5% vs same-city peers 12.4%. 87 bills / 829 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 1,38,627 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct).\nRs at stake (rough): Rs 5,586 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nBigger baskets Baskets are lighter than peer storesNon-event items per bill 1.69 vs same-city peers 1.84. Festival/wedding dates and packaging excluded.\nRs at stake (rough): Rs 68,027 - (peer items/bill - store items/bill) / store items/bill x 28-day revenue.\nAction (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).\n\nMore repeat Customers are not coming backOnly 1.0% of this store's customers billed again 30+ days after their first bill, vs 1.8% at peer stores.\nRs at stake (rough): Rs 6,378 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#2 LKO-02 · Lucknow (S+) open team actionsConversion 10.5% (peers 12.2%)Items/bill 1.83 (peers 1.77)Repeat-30 1.8% (peers 1.7%)Revenue 28d Rs 19,99,369More bills Walk-ins are not convertingNon-event conversion 10.7% vs same-city peers 12.4%. 202 bills / 1893 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 3,20,367 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (27 Oct, 29 Oct).\nRs at stake (rough): Rs 14,281 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nMore bills An experienced seller is no longer on the rosterImran C. averaged 1.2 bills a day over their final 90 days (91 bills) and has not been rostered since 14 Sep. The roster shows no exit reason.\nRs at stake (rough): Rs 84,367 - assumption, not observed: half of their prior daily bills at risk for 14 days x average bill value.\nAction (today): the store lead confirms whether Imran C. has left or is on extended leave, and covers their floor hours for this weekend within approved staffing.\n\n#3 LKO-01 · Lucknow (S++) open team actionsConversion 12.4% (peers 11.5%)Items/bill 1.85 (peers 1.77)Repeat-30 3.7% (peers 1.7%)Revenue 28d Rs 42,08,036More bills Conversion slipping vs last month - needs review, not a priorityConversion 12.4% vs 13.8% in the previous 28 days, walk-ins steady. The two windows can have a different festival load, so this is a diagnostic: confirm the cause before assigning any action.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct).\nRs at stake (rough): Rs 30,057 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\n#4 LKO-04 · Lucknow (S+) open team actionsConversion 13.6% (peers 11.1%)Items/bill 1.78 (peers 1.79)Repeat-30 1.7% (peers 1.8%)Revenue 28d Rs 22,85,644More bills Busy days ran short-handedOn 4 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (25 Oct, 27 Oct, 28 Oct, 29 Oct).\nRs at stake (rough): Rs 32,652 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nWeek-later outcome check (historical replay)\n18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.\nLKO-03: conversion 12.5% → 9.1% (-3.4 percentage points); items/bill 2.11 → 1.59. No conversion improvement.\nLKO-02: conversion 9.6% → 11.4% (1.9 percentage points); items/bill 2.09 → 1.78. Conversion improved.\nLKO-01: conversion 11.6% → 11.8% (0.2 percentage points); items/bill 1.87 → 1.83. Conversion improved.\nLKO-04: conversion 14.7% → 13.3% (-1.4 percentage points); items/bill 1.76 → 1.97. No conversion improvement.",
+   "stores": {
+    "LKO-01": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Conversion slipping vs last month - needs review, not a priority",
+       "why": "Conversion 12.4% vs 13.8% in the previous 28 days, walk-ins steady. The two windows can have a different festival load, so this is a diagnostic: confirm the cause before assigning any action.",
+       "action": "",
+       "rupees_rough": null,
+       "rupees_basis": null
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 30057,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "LKO-01 · Lucknow - 12 salespeople rostered in the last 28 days. Store medians: 1.54 bills/day, 1.85 items/bill, 80% attach on sherwani.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nGaurav V.\nSP1004 | 23 | 2.8 | 1.81 | 100% | 0.8% | On track - name Gaurav V. as today's role model for customer returns (0.8% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Om S.: 2.05 items/bill (yours 1.81). |\nTushar N.\nSP1015 | 23 | 2.7 | 1.95 | 78% | 1.0% | On track - name Tushar N. as today's role model for floor conversion (2.7 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Om S.: 2.05 items/bill (yours 1.95). |\nKamal G.\nSP1007 | 22 | 2.3 | 1.80 | 78% | 1.3% | Today: show a jacket with every kurta set trial. You pair on 8% of kurta bills; store median is 19%. Same-store peer Om S.: 2.05 items/bill (yours 1.80). |\nAshish K.\nSP1009 | 22 | 2.2 | 1.94 | 80% | 0.1% | On track - name Ashish K. as today's role model for customer returns (0.9% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Om S.: 2.05 items/bill (yours 1.94). |\nImran M.\nSP1016 | 23 | 1.8 | 2.00 | 100% | 0.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.0% versus same-store peers 0.4%. Same-store peer Ashish K.: 0.9% repeat (yours 0.0%). |\nAnkit N.\nSP1003 | 24 | 1.5 | 1.81 | 100% | 0.6% | Today: show a jacket with every kurta set trial. You pair on 8% of kurta bills; store median is 19%. Same-store peer Om S.: 2.05 items/bill (yours 1.81). |\nArif M.\nSP1013 | 23 | 1.5 | 1.66 | 100% | 0.3% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.4%. Same-store peer Ashish K.: 0.9% repeat (yours 0.2%). |\nShahid K.\nSP1002 | 23 | 1.2 | 1.86 | 100% | 0.0% | Today: take the trial-room position and ask for the next walk-in each round. 1.2 bills/day vs store median 1.5. Same-store peer Om S.: 2.05 items/bill (yours 1.86). |\nArjun A.\nSP1014 | 22 | 1.0 | 1.57 | n/a | 1.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.4%. Same-store peer Ashish K.: 0.9% repeat (yours 0.2%). |\nOm S.\nSP1010 | 23 | 0.9 | 2.05 | 67% | 1.6% | Today: take the trial-room position and ask for the next walk-in each round. 0.9 bills/day vs store median 1.5. Same-store peer Imran M.: 2.00 items/bill (yours 2.05). |\nVikas J.\nSP1005 | 22 | 0.7 | 1.81 | n/a | 0.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.4%. Same-store peer Ashish K.: 0.9% repeat (yours 0.2%). |\nManoj T.\nSP1012 | 22 | 0.6 | 1.85 | n/a | 0.8% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.4%. Same-store peer Ashish K.: 0.9% repeat (yours 0.3%). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "LKO-02": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 10.7% vs same-city peers 12.4%. 202 bills / 1893 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 320367,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (27 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 14281,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "More bills",
+       "title": "An experienced seller is no longer on the roster",
+       "why": "Imran C. averaged 1.2 bills a day over their final 90 days (91 bills) and has not been rostered since 14 Sep. The roster shows no exit reason.",
+       "action": "Action (today): the store lead confirms whether Imran C. has left or is on extended leave, and covers their floor hours for this weekend within approved staffing.",
+       "rupees_rough": 84367,
+       "rupees_basis": "assumption, not observed: half of their prior daily bills at risk for 14 days x average bill value"
+      }
+     ],
+     "team_text": "LKO-02 · Lucknow - 8 salespeople rostered in the last 28 days. Store medians: 1.26 bills/day, 1.84 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nSumit A.\nSP1027 | 22 | 1.5 | 2.15 | 0% | 1.5% | On track - name Sumit A. as today's role model for basket building (2.15 items/bill) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Ajay S.: 2.07 items/bill (yours 2.15). |\nAjay S.\nSP1026 | 23 | 1.3 | 2.07 | n/a | 0.3% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Sumit A.: 2.15 items/bill (yours 2.07). |\nJitendra G.\nSP1024 | 23 | 1.3 | 1.97 | 50% | 0.3% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Faizan M.: 0.8% repeat (yours 0.3%). |\nArif A.\nSP1175 | 16 | 1.6 | 1.73 | 100% | 0.2% | On track - name Arif A. as today's role model for floor conversion (1.6 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Sumit A.: 2.15 items/bill (yours 1.73). |\nVarun S.\nSP1021 | 23 | 1.1 | 1.84 | n/a | 2.7% | On track - name Varun S. as today's role model for customer returns (0.7% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Sumit A.: 2.15 items/bill (yours 1.84). |\nFaizan J.\nSP1025 | 23 | 1.0 | 1.43 | n/a | 0.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Faizan M.: 0.8% repeat (yours 0.3%). |\nJitendra V.\nSP1023 | 23 | 0.9 | 1.45 | n/a | 0.8% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Faizan M.: 0.8% repeat (yours 0.3%). |\nFaizan M.\nSP1019 | 24 | 0.8 | 1.68 | n/a | 0.0% | Today: take the trial-room position and ask for the next walk-in each round. 0.8 bills/day vs store median 1.3. Same-store peer Sumit A.: 2.15 items/bill (yours 1.68). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "LKO-03": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 10.5% vs same-city peers 12.4%. 87 bills / 829 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 138627,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 5586,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "Bigger baskets",
+       "title": "Baskets are lighter than peer stores",
+       "why": "Non-event items per bill 1.69 vs same-city peers 1.84. Festival/wedding dates and packaging excluded.",
+       "action": "Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+       "rupees_rough": 68027,
+       "rupees_basis": "(peer items/bill - store items/bill) / store items/bill x 28-day revenue"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 1.0% of this store's customers billed again 30+ days after their first bill, vs 1.8% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 6378,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "LKO-03 · Lucknow - 4 salespeople rostered in the last 28 days. Store medians: 1.09 bills/day, 1.75 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nShivam M.\nSP1030 | 23 | 1.2 | 1.63 | 100% | 0.0% | Today: when the occasion fits, show Mojari - it is on 11% of your bills versus 23% for Lucknow salespeople. Same-store peer Sumit R.: 1.76 items/bill (yours 1.63). |\nSumit R.\nSP1029 | 23 | 1.1 | 1.76 | 0% | 0.4% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Rizwan J.: 0.8% repeat (yours 0.2%). |\nYash C.\nSP1032 | 20 | 1.0 | 1.75 | n/a | 0.0% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Sumit R.: 1.76 items/bill (yours 1.75). |\nRizwan J.\nSP1028 | 22 | 0.8 | 1.59 | 100% | 0.0% | Today: take the trial-room position and ask for the next walk-in each round. 0.8 bills/day vs store median 1.1. Same-store peer Sumit R.: 1.76 items/bill (yours 1.59). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "LKO-04": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 4 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (25 Oct, 27 Oct, 28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 32652,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "LKO-04 · Lucknow - 8 salespeople rostered in the last 28 days. Store medians: 1.14 bills/day, 1.75 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nNaveen R.\nSP1038 | 23 | 1.9 | 1.98 | 0% | 0.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Zaid N.: 0.8% repeat (yours 0.3%). |\nRavi K.\nSP1034 | 23 | 1.9 | 1.73 | 0% | 0.3% | On track - name Ravi K. as today's role model for floor conversion (1.9 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Naveen R.: 1.98 items/bill (yours 1.73). |\nZaid N.\nSP1043 | 21 | 1.3 | 1.70 | n/a | 1.3% | Today: show a jacket with every kurta set trial. You pair on 13% of kurta bills; store median is 25%. Same-store peer Naveen R.: 1.98 items/bill (yours 1.70). |\nKunal C.\nSP1033 | 23 | 1.1 | 1.69 | 0% | 0.7% | Today: show a jacket with every kurta set trial. You pair on 6% of kurta bills; store median is 25%. Same-store peer Naveen R.: 1.98 items/bill (yours 1.69). |\nVivek V.\nSP1036 | 22 | 1.1 | 1.56 | 0% | 0.2% | Today: show a jacket with every kurta set trial. You pair on 6% of kurta bills; store median is 25%. Same-store peer Naveen R.: 1.98 items/bill (yours 1.56). |\nKamal A.\nSP1041 | 22 | 1.1 | 1.92 | 75% | 1.1% | On track - name Kamal A. as today's role model for customer returns (0.6% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Naveen R.: 1.98 items/bill (yours 1.92). |\nArif C.\nSP1042 | 23 | 1.0 | 1.75 | n/a | 0.0% | Today: when the occasion fits, show Mojari - it is on 8% of your bills versus 23% for Lucknow salespeople. Same-store peer Naveen R.: 1.98 items/bill (yours 1.75). |\nGopal Y.\nSP1037 | 24 | 0.6 | 1.87 | 50% | 0.2% | Today: take the trial-room position and ask for the next walk-in each round. 0.6 bills/day vs store median 1.1. Same-store peer Naveen R.: 1.98 items/bill (yours 1.87). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    }
+   }
+  },
+  {
+   "manager": "Alok Tiwari",
+   "id": "AM-02",
+   "brief_text": "Alok Tiwari (Kanpur) - brief for Sat 31 Oct 2026, generated automatically by the scheduled job (same rules as the in-browser brief). 3 of 3 stores need attention. Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.\nThis week's assigned issues (at most 5, ranked by rough rupees at stake):\nKNP-03 - More bills Walk-ins are not converting - Rs 1,85,599 at stake (rough)\nKNP-02 - Bigger baskets Baskets are lighter than peer stores - Rs 37,819 at stake (rough)\nKNP-01 - More bills Busy days ran short-handed - Rs 18,015 at stake (rough)\nKNP-03 - More repeat Customers are not coming back - Rs 13,658 at stake (rough)\nKNP-02 - More bills Busy days ran short-handed - Rs 6,462 at stake (rough)\nAssignments are retained for this snapshot week in the repo state file (state/weekly.json). Rs figures are rough scenarios, not measured losses. +2 lower-priority diagnostics remain in the store cards below; they are not assigned this week.\n#1 KNP-03 · Kanpur (B) open team actionsConversion 8.7% (peers 12.4%)Items/bill 1.84 (peers 1.68)Repeat-30 0.8% (peers 3.8%)Revenue 28d Rs 4,55,412More bills Walk-ins are not convertingNon-event conversion 8.8% vs same-city peers 12.4%. 45 bills / 511 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 1,85,599 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (28 Oct, 29 Oct).\nRs at stake (rough): Rs 3,253 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nMore repeat Customers are not coming backOnly 0.8% of this store's customers billed again 30+ days after their first bill, vs 3.8% at peer stores.\nRs at stake (rough): Rs 13,658 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#2 KNP-02 · Kanpur (A) open team actionsConversion 11.5% (peers 11.0%)Items/bill 1.65 (peers 1.78)Repeat-30 2.1% (peers 3.1%)Revenue 28d Rs 6,03,091More bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct, 29 Oct).\nRs at stake (rough): Rs 6,462 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nBigger baskets Baskets are lighter than peer storesNon-event items per bill 1.67 vs same-city peers 1.77. Festival/wedding dates and packaging excluded.\nRs at stake (rough): Rs 37,819 - (peer items/bill - store items/bill) / store items/bill x 28-day revenue.\nAction (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).\n\nMore repeat Customers are not coming backOnly 2.1% of this store's customers billed again 30+ days after their first bill, vs 3.1% at peer stores.\nRs at stake (rough): Rs 6,359 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#3 KNP-01 · Kanpur (S+) open team actionsConversion 13.3% (peers 10.1%)Items/bill 1.71 (peers 1.75)Repeat-30 5.5% (peers 1.4%)Revenue 28d Rs 16,81,361More bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct, 28 Oct).\nRs at stake (rough): Rs 18,015 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nWeek-later outcome check (historical replay)\n18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.\nKNP-03: conversion 8.8% → 7.2% (-1.6 percentage points); items/bill 1.88 → 2.00. No conversion improvement.\nKNP-02: conversion 8.5% → 10.0% (1.5 percentage points); items/bill 1.38 → 1.64. Conversion improved.\nKNP-01: conversion 11.8% → 13.3% (1.5 percentage points); items/bill 1.96 → 1.69. Conversion improved.",
+   "stores": {
+    "KNP-01": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct, 28 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 18015,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "KNP-01 · Kanpur - 8 salespeople rostered in the last 28 days. Store medians: 1.35 bills/day, 1.65 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nRohit V.\nSP1044 | 24 | 1.8 | 1.65 | 0% | 0.4% | On track - name Rohit V. as today's role model for floor conversion (1.8 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Nikhil S.: 2.16 items/bill (yours 1.65). |\nSachin T.\nSP1050 | 24 | 1.4 | 1.82 | n/a | 0.7% | On track - name Sachin T. as today's role model for customer returns (1.6% repeat-30 vs store median 0.9%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Nikhil S.: 2.16 items/bill (yours 1.82). |\nShahid A.\nSP1054 | 23 | 1.4 | 1.45 | n/a | 0.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 1.0%. Same-store peer Sachin T.: 1.6% repeat (yours 0.3%). |\nNikhil S.\nSP1047 | 23 | 1.3 | 2.16 | 100% | 0.1% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.6% versus same-store peers 1.0%. Same-store peer Sachin T.: 1.6% repeat (yours 0.6%). |\nRavi C.\nSP1045 | 23 | 1.0 | 1.59 | n/a | 0.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.4% versus same-store peers 1.0%. Same-store peer Sachin T.: 1.6% repeat (yours 0.4%). |\nJitendra J.\nSP1052 | 24 | 0.5 | 1.54 | n/a | 0.3% | Today: when the occasion fits, show Jacket - it is on 8% of your bills versus 24% for Kanpur salespeople. Same-store peer Nikhil S.: 2.16 items/bill (yours 1.54). |\nVivek D.\nSP1048 | 21 | 0.6 | 1.83 | n/a | 0.0% | Today: when the occasion fits, show Jacket - it is on 8% of your bills versus 24% for Kanpur salespeople. Same-store peer Nikhil S.: 2.16 items/bill (yours 1.83). |\nDheeraj R.\nSP1053 | 22 | 0.4 | 1.44 | n/a | 1.2% | Today: review five customer conversations with the store lead; too few shifts or bills for reliable coaching. Same-store peer Nikhil S.: 2.16 items/bill (yours 1.44). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "KNP-02": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 6462,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "Bigger baskets",
+       "title": "Baskets are lighter than peer stores",
+       "why": "Non-event items per bill 1.67 vs same-city peers 1.77. Festival/wedding dates and packaging excluded.",
+       "action": "Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+       "rupees_rough": 37819,
+       "rupees_basis": "(peer items/bill - store items/bill) / store items/bill x 28-day revenue"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 2.1% of this store's customers billed again 30+ days after their first bill, vs 3.1% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 6359,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "KNP-02 · Kanpur - 4 salespeople rostered in the last 28 days. Store medians: 0.88 bills/day, 1.77 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nArjun Y.\nSP1058 | 24 | 0.9 | 1.77 | 100% | 0.2% | Today: show a jacket with every kurta set trial. You pair on 15% of kurta bills; store median is 29%. Same-store peer Kamal R.: 1.83 items/bill (yours 1.77). |\nManoj T.\nSP1055 | 24 | 0.9 | 1.33 | n/a | 0.0% | Today: show a jacket with every kurta set trial. You pair on 0% of kurta bills; store median is 29%. Same-store peer Kamal R.: 1.83 items/bill (yours 1.33). |\nDinesh D.\nSP1059 | 23 | 0.6 | 1.77 | 100% | 0.0% | Today: take the trial-room position and ask for the next walk-in each round. 0.6 bills/day vs store median 0.9. Same-store peer Kamal R.: 1.83 items/bill (yours 1.77). |\nKamal R.\nSP1056 | 24 | 0.5 | 1.83 | n/a | 0.6% | Today: take the trial-room position and ask for the next walk-in each round. 0.5 bills/day vs store median 0.9. Same-store peer Arjun Y.: 1.77 items/bill (yours 1.83). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "KNP-03": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 8.8% vs same-city peers 12.4%. 45 bills / 511 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 185599,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 3253,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 0.8% of this store's customers billed again 30+ days after their first bill, vs 3.8% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 13658,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "KNP-03 · Kanpur - 3 salespeople rostered in the last 28 days. Store medians: 0.60 bills/day, 1.86 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nKunal N.\nSP1061 | 22 | 1.0 | 1.86 | n/a | 0.3% | Today: show a jacket with every kurta set trial. You pair on 21% of kurta bills; store median is 33%. Same-store peer Sumit S.: 2.00 items/bill (yours 1.86). |\nOm K.\nSP1063 | 20 | 0.6 | 1.67 | 100% | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.0% versus same-store peers 0.7%. Same-store peer Kunal N.: 0.7% repeat (yours 0.0%). |\nSumit S.\nSP1060 | 19 | 0.6 | 2.00 | 100% | 2.1% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.4% versus same-store peers 0.7%. Same-store peer Kunal N.: 0.7% repeat (yours 0.4%). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    }
+   }
+  },
+  {
+   "manager": "Nitin Sinha",
+   "id": "AM-03",
+   "brief_text": "Nitin Sinha (Patna) - brief for Sat 31 Oct 2026, generated automatically by the scheduled job (same rules as the in-browser brief). 3 of 4 stores need attention. Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.\nThis week's assigned issues (at most 5, ranked by rough rupees at stake):\nPAT-04 - More bills Walk-ins are not converting - Rs 1,53,551 at stake (rough)\nPAT-04 - Bigger baskets Baskets are lighter than peer stores - Rs 96,614 at stake (rough)\nPAT-01 - More bills Busy days ran short-handed - Rs 45,884 at stake (rough)\nPAT-02 - More bills A strong seller has far more Off days than the store norm - Rs 20,787 at stake (rough)\nPAT-04 - More repeat Customers are not coming back - Rs 10,565 at stake (rough)\nAssignments are retained for this snapshot week in the repo state file (state/weekly.json). Rs figures are rough scenarios, not measured losses. +1 lower-priority diagnostics remain in the store cards below; they are not assigned this week.\n#1 PAT-04 · Patna (B) open team actionsConversion 9.1% (peers 13.0%)Items/bill 1.50 (peers 1.83)Repeat-30 0.4% (peers 3.2%)Revenue 28d Rs 3,75,333More bills Walk-ins are not convertingNon-event conversion 9.4% vs same-city peers 13.2%. 54 bills / 577 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 1,53,551 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (28 Oct, 29 Oct).\nRs at stake (rough): Rs 2,681 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nBigger baskets Baskets are lighter than peer storesNon-event items per bill 1.50 vs same-city peers 1.89. Festival/wedding dates and packaging excluded.\nRs at stake (rough): Rs 96,614 - (peer items/bill - store items/bill) / store items/bill x 28-day revenue.\nAction (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).\n\nMore repeat Customers are not coming backOnly 0.4% of this store's customers billed again 30+ days after their first bill, vs 3.2% at peer stores.\nRs at stake (rough): Rs 10,565 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#2 PAT-01 · Patna (S++) open team actionsConversion 13.8% (peers 11.4%)Items/bill 2.00 (peers 1.66)Repeat-30 4.1% (peers 1.4%)Revenue 28d Rs 42,82,462More bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct, 29 Oct).\nRs at stake (rough): Rs 45,884 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\n#3 PAT-02 · Patna (S+) open team actionsConversion 12.5% (peers 11.8%)Items/bill 1.77 (peers 1.74)Repeat-30 2.3% (peers 2.2%)Revenue 28d Rs 20,71,319More bills A strong seller has far more Off days than the store normAman B. was rostered Off 9 of the last 28 days versus a store median of 6.5, while averaging 1.9 bills a day when present (store median 1.3). Off can be leave, weekly-off or absence - the roster does not say which - so this needs a roster review, not a blame call.\nRs at stake (rough): Rs 20,787 - assumption, not observed: half of their daily bills for each Off day beyond the store's median x average bill value.\nAction (today): the store lead reviews the roster with Aman B. and agrees next week's availability in line with the weekly-off policy.\n\n#4 PAT-03 · Patna (A) open team actionsConversion 12.5% (peers 11.8%)Items/bill 1.72 (peers 1.76)Repeat-30 0.5% (peers 2.3%)Revenue 28d Rs 6,78,726Data issue Data issue - coaching suppressed2026-10-05: bills exceed footfall or invalid footfall; 2026-10-06: bills exceed footfall or invalid footfall; 2026-10-07: bills exceed footfall or invalid footfall; 2026-10-09: bills exceed footfall or invalid footfall; 2026-10-10: bills exceed footfall or invalid footfall; 2026-10-11: bills exceed footfall or invalid footfall; 2026-10-12: bills exceed footfall or invalid footfall; 2026-10-13: bills exceed footfall or invalid footfall; 2026-10-14: bills exceed footfall or invalid footfall; 2026-10-15: bills exceed footfall or invalid footfall; 2026-10-16: bills exceed footfall or invalid footfall\nStore lead: verify the door-camera and billing counts today before assigning performance actions.\n\nWeek-later outcome check (historical replay)\n18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.\nPAT-04: conversion 16.2% → 6.7% (-9.5 percentage points); items/bill 1.53 → 1.50. No conversion improvement.\nPAT-01: conversion 13.7% → 13.8% (0.1 percentage points); items/bill 2.09 → 1.94. Conversion improved.\nPAT-02: conversion 9.2% → 12.0% (2.8 percentage points); items/bill 1.97 → 1.71. Conversion improved.\nPAT-03: outcome withheld until the data issue is checked.",
+   "stores": {
+    "PAT-01": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 45884,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "PAT-01 · Patna - 12 salespeople rostered in the last 28 days. Store medians: 1.67 bills/day, 1.98 items/bill, 100% attach on sherwani.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nFaizan K.\nSP1072 | 23 | 2.3 | 1.91 | 33% | 1.5% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.1% versus same-store peers 0.5%. Same-store peer Kamal G.: 0.9% repeat (yours 0.1%). |\nTarun T.\nSP1078 | 24 | 2.2 | 1.98 | 100% | 1.0% | On track - name Tarun T. as today's role model for customer returns (0.5% repeat-30 vs store median 0.3%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Tarun C.: 2.29 items/bill (yours 1.98). |\nGopal R.\nSP1067 | 23 | 2.0 | 1.74 | 100% | 2.3% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Kamal G.: 0.9% repeat (yours 0.2%). |\nKamal G.\nSP1069 | 24 | 1.7 | 1.82 | 75% | 4.1% | On track - name Kamal G. as today's role model for customer returns (0.9% repeat-30 vs store median 0.3%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Tarun C.: 2.29 items/bill (yours 1.82). |\nManoj N.\nSP1064 | 22 | 1.8 | 2.26 | 80% | 4.7% | Today: bring the safa, mojari and mala to every sherwani trial without being asked (check sizes in stock first). You attach on 80% of sherwani bills; store median is 100%. Same-store peer Tarun C.: 2.29 items/bill (yours 2.26). |\nTarun B.\nSP1077 | 22 | 1.8 | 2.03 | 100% | 0.1% | On track - name Tarun B. as today's role model for customer returns (0.5% repeat-30 vs store median 0.3%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Tarun C.: 2.29 items/bill (yours 2.03). |\nVivek S.\nSP1075 | 23 | 1.6 | 1.97 | 100% | 3.8% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Kamal G.: 0.9% repeat (yours 0.2%). |\nSanjay K.\nSP1065 | 23 | 1.4 | 2.16 | 100% | 3.8% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Kamal G.: 0.9% repeat (yours 0.3%). |\nRaju P.\nSP1076 | 23 | 1.1 | 1.96 | 100% | 0.5% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Kamal G.: 0.9% repeat (yours 0.2%). |\nTarun C.\nSP1079 | 23 | 0.7 | 2.29 | 50% | 0.6% | Today: take the trial-room position and ask for the next walk-in each round. 0.7 bills/day vs store median 1.7. Same-store peer Manoj N.: 2.26 items/bill (yours 2.29). |\nMukesh D.\nSP1070 | 21 | 0.6 | 2.23 | 100% | 0.0% | Today: show a jacket with every kurta set trial. You pair on 11% of kurta bills; store median is 24%. Same-store peer Tarun C.: 2.29 items/bill (yours 2.23). |\nRizwan N.\nSP1073 | 24 | 0.3 | 2.63 | 0% | 0.0% | Today: review five customer conversations with the store lead; too few shifts or bills for reliable coaching. Same-store peer Tarun C.: 2.29 items/bill (yours 2.63). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "PAT-02": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "A strong seller has far more Off days than the store norm",
+       "why": "Aman B. was rostered Off 9 of the last 28 days versus a store median of 6.5, while averaging 1.9 bills a day when present (store median 1.3). Off can be leave, weekly-off or absence - the roster does not say which - so this needs a roster review, not a blame call.",
+       "action": "Action (today): the store lead reviews the roster with Aman B. and agrees next week's availability in line with the weekly-off policy.",
+       "rupees_rough": 20787,
+       "rupees_basis": "assumption, not observed: half of their daily bills for each Off day beyond the store's median x average bill value"
+      }
+     ],
+     "team_text": "PAT-02 · Patna - 8 salespeople rostered in the last 28 days. Store medians: 1.67 bills/day, 1.82 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nPrakash J.\nSP1085 | 23 | 2.0 | 2.04 | 100% | 1.7% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.6%. Same-store peer Aman B.: 0.9% repeat (yours 0.3%). |\nArjun D.\nSP1087 | 24 | 1.7 | 1.70 | 33% | 0.3% | On track - name Arjun D. as today's role model for customer returns (0.6% repeat-30 vs store median 0.3%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Prakash J.: 2.04 items/bill (yours 1.70). |\nAman B.\nSP1083 | 19 | 1.9 | 1.58 | 0% | 0.2% | Today: show a jacket with every kurta set trial. You pair on 0% of kurta bills; store median is 20%. Same-store peer Prakash J.: 2.04 items/bill (yours 1.58). |\nSaurabh P.\nSP1088 | 21 | 1.7 | 1.86 | 100% | 0.6% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.6%. Same-store peer Aman B.: 0.9% repeat (yours 0.3%). |\nJitendra K.\nSP1090 | 24 | 1.0 | 1.88 | 0% | 0.4% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.6%. Same-store peer Aman B.: 0.9% repeat (yours 0.3%). |\nVinod S.\nSP1084 | 21 | 1.0 | 1.48 | n/a | 0.2% | Today: add one more item to every second bill - start with the mojari at billing. Items/bill 1.48 vs store median 1.82. Same-store peer Prakash J.: 2.04 items/bill (yours 1.48). |\nHemant M.\nSP1089 | 21 | 0.8 | 1.82 | n/a | 2.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.6%. Same-store peer Aman B.: 0.9% repeat (yours 0.3%). |\nManoj R.\nSP1081 | 22 | 0.7 | 1.53 | n/a | 0.8% | Today: when the occasion fits, show Mojari - it is on 0% of your bills versus 26% for Patna salespeople. Same-store peer Prakash J.: 2.04 items/bill (yours 1.53). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "PAT-03": {
+     "alerts": [
+      {
+       "lever": "Data issue",
+       "title": "Data issue - coaching suppressed",
+       "why": "2026-10-05: bills exceed footfall or invalid footfall; 2026-10-06: bills exceed footfall or invalid footfall; 2026-10-07: bills exceed footfall or invalid footfall; 2026-10-09: bills exceed footfall or invalid footfall; 2026-10-10: bills exceed footfall or invalid footfall; 2026-10-11: bills exceed footfall or invalid footfall; 2026-10-12: bills exceed footfall or invalid footfall; 2026-10-13: bills exceed footfall or invalid footfall; 2026-10-14: bills exceed footfall or invalid footfall; 2026-10-15: bills exceed footfall or invalid footfall; 2026-10-16: bills exceed footfall or invalid footfall",
+       "action": "Store lead: verify the door-camera and billing counts today before assigning performance actions.",
+       "rupees_rough": null,
+       "rupees_basis": null
+      }
+     ],
+     "team_text": "Coaching withheld: store data must be checked first. Store lead, verify billing and footfall today."
+    },
+    "PAT-04": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 9.4% vs same-city peers 13.2%. 54 bills / 577 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 153551,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 2681,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "Bigger baskets",
+       "title": "Baskets are lighter than peer stores",
+       "why": "Non-event items per bill 1.50 vs same-city peers 1.89. Festival/wedding dates and packaging excluded.",
+       "action": "Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+       "rupees_rough": 96614,
+       "rupees_basis": "(peer items/bill - store items/bill) / store items/bill x 28-day revenue"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 0.4% of this store's customers billed again 30+ days after their first bill, vs 3.2% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 10565,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "PAT-04 · Patna - 3 salespeople rostered in the last 28 days. Store medians: 0.75 bills/day, 1.38 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nZaid A.\nSP1098 | 22 | 1.1 | 1.38 | 100% | 0.6% | On track - name Zaid A. as today's role model for floor conversion (1.1 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Imran C.: 1.78 items/bill (yours 1.38). |\nImran C.\nSP1099 | 24 | 0.8 | 1.78 | 100% | 0.0% | On track - name Imran C. as today's role model for basket building (1.78 items/bill) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Zaid A.: 1.38 items/bill (yours 1.78). |\nPrakash V.\nSP1097 | 23 | 0.5 | 1.33 | 0% | 0.0% | Today: take the trial-room position and ask for the next walk-in each round. 0.5 bills/day vs store median 0.8. Same-store peer Imran C.: 1.78 items/bill (yours 1.33). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    }
+   }
+  },
+  {
+   "manager": "Pankaj Jha",
+   "id": "AM-04",
+   "brief_text": "Pankaj Jha (Muzaffarpur) - brief for Sat 31 Oct 2026, generated automatically by the scheduled job (same rules as the in-browser brief). 2 of 2 stores need attention. Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.\nThis week's assigned issues (at most 5, ranked by rough rupees at stake):\nMZF-01 - More bills Walk-ins are not converting - Rs 1,40,451 at stake (rough)\nMZF-02 - Bigger baskets Baskets are lighter than peer stores - Rs 24,076 at stake (rough)\nMZF-02 - More repeat Customers are not coming back - Rs 11,019 at stake (rough)\nMZF-01 - More bills Busy days ran short-handed - Rs 4,931 at stake (rough)\nMZF-02 - More bills Busy days ran short-handed - Rs 2,888 at stake (rough)\nAssignments are retained for this snapshot week in the repo state file (state/weekly.json). Rs figures are rough scenarios, not measured losses.\n#1 MZF-02 · Muzaffarpur (B) open team actionsConversion 9.9% (peers 8.3%)Items/bill 1.44 (peers 1.52)Repeat-30 2.5% (peers 5.2%)Revenue 28d Rs 4,04,259More bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct).\nRs at stake (rough): Rs 2,888 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nBigger baskets Baskets are lighter than peer storesNon-event items per bill 1.44 vs same-city peers 1.52. Festival/wedding dates and packaging excluded.\nRs at stake (rough): Rs 24,076 - (peer items/bill - store items/bill) / store items/bill x 28-day revenue.\nAction (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).\n\nMore repeat Customers are not coming backOnly 2.5% of this store's customers billed again 30+ days after their first bill, vs 5.2% at peer stores.\nRs at stake (rough): Rs 11,019 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#2 MZF-01 · Muzaffarpur (A) open team actionsConversion 8.3% (peers 9.9%)Items/bill 1.52 (peers 1.44)Repeat-30 5.2% (peers 2.5%)Revenue 28d Rs 6,90,295More bills Walk-ins are not convertingNon-event conversion 8.4% vs same-city peers 10.2%. 103 bills / 1222 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 1,40,451 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (27 Oct, 29 Oct).\nRs at stake (rough): Rs 4,931 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nWeek-later outcome check (historical replay)\n18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.\nMZF-02: conversion 7.9% → 11.5% (3.6 percentage points); items/bill 1.38 → 1.52. Conversion improved.\nMZF-01: conversion 5.2% → 7.4% (2.2 percentage points); items/bill 1.45 → 1.50. Conversion improved.",
+   "stores": {
+    "MZF-01": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 8.4% vs same-city peers 10.2%. 103 bills / 1222 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 140451,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (27 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 4931,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "MZF-01 · Muzaffarpur - 4 salespeople rostered in the last 28 days. Store medians: 1.05 bills/day, 1.45 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nSaurabh Y.\nSP1101 | 23 | 1.8 | 1.74 | 100% | 0.2% | On track - name Saurabh Y. as today's role model for customer returns (2.3% repeat-30 vs store median 1.2%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Chandan S.: 1.45 items/bill (yours 1.74). |\nAmit C.\nSP1102 | 22 | 1.0 | 1.39 | n/a | 0.5% | Today: show a jacket with every kurta set trial. You pair on 6% of kurta bills; store median is 22%. Same-store peer Saurabh Y.: 1.74 items/bill (yours 1.39). |\nChandan S.\nSP1104 | 24 | 0.9 | 1.45 | n/a | 0.1% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.9% versus same-store peers 1.2%. Same-store peer Saurabh Y.: 2.3% repeat (yours 0.9%). |\nRaju S.\nSP1103 | 23 | 0.7 | 1.24 | n/a | 0.0% | Today: add one more item to every second bill - start with the mojari at billing. Items/bill 1.24 vs store median 1.45. Same-store peer Saurabh Y.: 1.74 items/bill (yours 1.24). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "MZF-02": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 28 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 2888,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "Bigger baskets",
+       "title": "Baskets are lighter than peer stores",
+       "why": "Non-event items per bill 1.44 vs same-city peers 1.52. Festival/wedding dates and packaging excluded.",
+       "action": "Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+       "rupees_rough": 24076,
+       "rupees_basis": "(peer items/bill - store items/bill) / store items/bill x 28-day revenue"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 2.5% of this store's customers billed again 30+ days after their first bill, vs 5.2% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 11019,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "MZF-02 · Muzaffarpur - 3 salespeople rostered in the last 28 days. Store medians: 0.80 bills/day, 1.40 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nManish C.\nSP1108 | 24 | 1.0 | 1.40 | n/a | 0.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.9% versus same-store peers 1.9%. Same-store peer Rahul Y.: 1.9% repeat (yours 0.9%). |\nAnkit P.\nSP1106 | 20 | 0.8 | 1.63 | 100% | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.9% versus same-store peers 1.9%. Same-store peer Rahul Y.: 1.9% repeat (yours 0.9%). |\nRahul Y.\nSP1105 | 22 | 0.7 | 1.31 | n/a | 0.8% | On track - name Rahul Y. as today's role model for customer returns (1.9% repeat-30 vs store median 0.9%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Ankit P.: 1.63 items/bill (yours 1.31). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    }
+   }
+  },
+  {
+   "manager": "Harish Gowda",
+   "id": "AM-05",
+   "brief_text": "Harish Gowda (Bengaluru) - brief for Sat 31 Oct 2026, generated automatically by the scheduled job (same rules as the in-browser brief). 4 of 5 stores need attention. Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.\nThis week's assigned issues (at most 5, ranked by rough rupees at stake):\nBLR-03 - More bills Walk-ins are not converting - Rs 3,86,105 at stake (rough)\nBLR-05 - Bigger baskets Baskets are lighter than peer stores - Rs 47,358 at stake (rough)\nBLR-01 - More bills Busy days ran short-handed - Rs 46,736 at stake (rough)\nBLR-05 - More bills Walk-ins are not converting - Rs 42,568 at stake (rough)\nBLR-03 - More repeat Customers are not coming back - Rs 27,210 at stake (rough)\nAssignments are retained for this snapshot week in the repo state file (state/weekly.json). Rs figures are rough scenarios, not measured losses. +5 lower-priority diagnostics remain in the store cards below; they are not assigned this week.\n#1 BLR-04 · Bengaluru (S+) open team actionsConversion 12.9% (peers 11.8%)Items/bill 1.81 (peers 1.81)Repeat-30 1.3% (peers 2.4%)Revenue 28d Rs 22,13,709More bills Conversion slipping vs last month - needs review, not a priorityConversion 12.9% vs 15.0% in the previous 28 days, walk-ins steady. The two windows can have a different festival load, so this is a diagnostic: confirm the cause before assigning any action.\n\nMore bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (27 Oct, 28 Oct, 29 Oct).\nRs at stake (rough): Rs 23,718 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nMore repeat Customers are not coming backOnly 1.3% of this store's customers billed again 30+ days after their first bill, vs 2.4% at peer stores.\nRs at stake (rough): Rs 24,934 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\nMore bills A strong seller has far more Off days than the store normSachin M. was rostered Off 9 of the last 28 days versus a store median of 6.0, while averaging 1.7 bills a day when present (store median 1.3). Off can be leave, weekly-off or absence - the roster does not say which - so this needs a roster review, not a blame call.\nRs at stake (rough): Rs 22,920 - assumption, not observed: half of their daily bills for each Off day beyond the store's median x average bill value.\nAction (today): the store lead reviews the roster with Sachin M. and agrees next week's availability in line with the weekly-off policy.\n\n#2 BLR-03 · Bengaluru (S+) open team actionsConversion 10.7% (peers 12.4%)Items/bill 1.92 (peers 1.78)Repeat-30 1.1% (peers 2.4%)Revenue 28d Rs 20,99,144More bills Walk-ins are not convertingNon-event conversion 10.6% vs same-city peers 12.7%. 201 bills / 1891 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 3,86,105 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct, 29 Oct).\nRs at stake (rough): Rs 22,491 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nMore repeat Customers are not coming backOnly 1.1% of this store's customers billed again 30+ days after their first bill, vs 2.4% at peer stores.\nRs at stake (rough): Rs 27,210 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#3 BLR-05 · Bengaluru (B) open team actionsConversion 10.8% (peers 12.4%)Items/bill 1.57 (peers 1.87)Repeat-30 n/a (peers 1.9%)Revenue 28d Rs 2,70,452More bills Walk-ins are not convertingNon-event conversion 10.9% vs same-city peers 12.7%. 39 bills / 358 walk-ins across 21 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 42,568 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (28 Oct, 29 Oct).\nRs at stake (rough): Rs 1,932 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nBigger baskets Baskets are lighter than peer storesNon-event items per bill 1.59 vs same-city peers 1.87. Festival/wedding dates and packaging excluded.\nRs at stake (rough): Rs 47,358 - (peer items/bill - store items/bill) / store items/bill x 28-day revenue.\nAction (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).\n\n#4 BLR-01 · Bengaluru (S++) open team actionsConversion 12.5% (peers 11.9%)Items/bill 1.88 (peers 1.79)Repeat-30 3.1% (peers 1.3%)Revenue 28d Rs 43,62,043More bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct, 28 Oct).\nRs at stake (rough): Rs 46,736 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\n#5 BLR-02 · Bengaluru (S++) open team actionsConversion 13.3% (peers 11.7%)Items/bill 1.87 (peers 1.80)Repeat-30 2.4% (peers 1.3%)Revenue 28d Rs 45,12,072No alert: tracking at or above peers on all three levers. Name today's role models in the team view so others can copy them.\n\nWeek-later outcome check (historical replay)\n18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.\nBLR-04: conversion 14.9% → 10.1% (-4.7 percentage points); items/bill 1.76 → 1.97. No conversion improvement.\nBLR-03: conversion 11.7% → 9.4% (-2.3 percentage points); items/bill 2.33 → 1.70. No conversion improvement.\nBLR-05: conversion 11.5% → 11.4% (-0.1 percentage points); items/bill 1.67 → 1.57. No conversion improvement.\nBLR-01: conversion 12.7% → 10.8% (-1.9 percentage points); items/bill 1.99 → 1.85. No conversion improvement.\nBLR-02: conversion 13.2% → 13.0% (-0.1 percentage points); items/bill 2.01 → 1.77. No conversion improvement.",
+   "stores": {
+    "BLR-01": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct, 28 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 46736,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "BLR-01 · Bengaluru - 12 salespeople rostered in the last 28 days. Store medians: 1.46 bills/day, 1.93 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nPrasad M.\nSP1118 | 22 | 2.7 | 1.93 | 100% | 0.9% | Today: when the occasion fits, show Mojari - it is on 10% of your bills versus 23% for Bengaluru salespeople. Same-store peer Umesh N.: 2.13 items/bill (yours 1.93). |\nSrinivas B.\nSP1123 | 23 | 2.3 | 2.02 | 100% | 1.0% | On track - name Srinivas B. as today's role model for customer returns (0.7% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Umesh N.: 2.13 items/bill (yours 2.02). |\nNithin J.\nSP1112 | 24 | 2.0 | 1.85 | 67% | 0.6% | Today: when the occasion fits, show Mojari - it is on 11% of your bills versus 23% for Bengaluru salespeople. Same-store peer Umesh N.: 2.13 items/bill (yours 1.85). |\nKarthik J.\nSP1110 | 24 | 1.9 | 1.61 | 0% | 0.7% | Today: add one more item to every second bill - start with the mojari at billing. Items/bill 1.61 vs store median 1.93. Same-store peer Umesh N.: 2.13 items/bill (yours 1.61). |\nSuresh V.\nSP1120 | 23 | 1.7 | 1.82 | 100% | 0.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Srinivas B.: 0.7% repeat (yours 0.2%). |\nYogesh G.\nSP1119 | 24 | 1.5 | 2.03 | 100% | 3.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.1% versus same-store peers 0.5%. Same-store peer Srinivas B.: 0.7% repeat (yours 0.1%). |\nDeepak S.\nSP1111 | 23 | 1.4 | 1.64 | 0% | 1.5% | Today: show a jacket with every kurta set trial. You pair on 9% of kurta bills; store median is 25%. Same-store peer Umesh N.: 2.13 items/bill (yours 1.64). |\nSunil T.\nSP1122 | 22 | 1.5 | 2.09 | 100% | 4.1% | On track - name Sunil T. as today's role model for customer returns (0.5% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Umesh N.: 2.13 items/bill (yours 2.09). |\nManjunath C.\nSP1114 | 22 | 1.5 | 2.06 | 50% | 2.7% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Srinivas B.: 0.7% repeat (yours 0.3%). |\nChetan S.\nSP1116 | 24 | 1.3 | 1.73 | n/a | 0.9% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Umesh N.: 2.13 items/bill (yours 1.73). |\nUmesh N.\nSP1124 | 22 | 1.1 | 2.13 | 100% | 0.9% | Today: take the trial-room position and ask for the next walk-in each round. 1.1 bills/day vs store median 1.5. Same-store peer Sunil T.: 2.09 items/bill (yours 2.13). |\nSachin R.\nSP1113 | 23 | 0.8 | 1.53 | 100% | 0.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Srinivas B.: 0.7% repeat (yours 0.2%). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "BLR-02": {
+     "alerts": [],
+     "team_text": "BLR-02 · Bengaluru - 12 salespeople rostered in the last 28 days. Store medians: 1.82 bills/day, 1.93 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nDeepak V.\nSP1136 | 23 | 2.5 | 1.71 | 0% | 0.9% | On track - name Deepak V. as today's role model for floor conversion (2.5 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Deepak C.: 2.16 items/bill (yours 1.71). |\nSuresh K.\nSP1125 | 23 | 2.4 | 1.93 | 100% | 1.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Deepak C.: 2.6% repeat (yours 0.3%). |\nVenkatesh Y.\nSP1128 | 23 | 2.3 | 1.94 | 0% | 2.0% | On track - name Venkatesh Y. as today's role model for customer returns (0.6% repeat-30 vs store median 0.5%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Deepak C.: 2.16 items/bill (yours 1.94). |\nPrasad D.\nSP1135 | 22 | 2.0 | 1.68 | 100% | 2.2% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Deepak C.: 2.16 items/bill (yours 1.68). |\nGirish V.\nSP1134 | 23 | 1.9 | 1.89 | 100% | 1.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.1% versus same-store peers 0.5%. Same-store peer Deepak C.: 2.6% repeat (yours 0.1%). |\nPrasad B.\nSP1126 | 24 | 1.7 | 1.93 | 50% | 1.8% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.1% versus same-store peers 0.5%. Same-store peer Deepak C.: 2.6% repeat (yours 0.1%). |\nPavan N.\nSP1129 | 22 | 1.8 | 2.02 | 100% | 3.4% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.5%. Same-store peer Deepak C.: 2.6% repeat (yours 0.3%). |\nNagaraj G.\nSP1133 | 21 | 1.8 | 1.62 | 100% | 3.5% | Today: add one more item to every second bill - start with the mojari at billing. Items/bill 1.62 vs store median 1.93. Same-store peer Deepak C.: 2.16 items/bill (yours 1.62). |\nVenkatesh S.\nSP1140 | 23 | 1.6 | 2.03 | 0% | 0.9% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Deepak C.: 2.16 items/bill (yours 2.03). |\nVinay K.\nSP1130 | 24 | 1.3 | 1.78 | n/a | 2.2% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.5%. Same-store peer Deepak C.: 2.6% repeat (yours 0.2%). |\nDeepak C.\nSP1137 | 23 | 0.8 | 2.16 | 100% | 0.0% | Today: show a jacket with every kurta set trial. You pair on 0% of kurta bills; store median is 20%. Same-store peer Venkatesh S.: 2.03 items/bill (yours 2.16). |\nMahesh J.\nSP1139 | 22 | 0.6 | 1.93 | 0% | 4.0% | Today: take the trial-room position and ask for the next walk-in each round. 0.6 bills/day vs store median 1.8. Same-store peer Deepak C.: 2.16 items/bill (yours 1.93). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "BLR-03": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 10.6% vs same-city peers 12.7%. 201 bills / 1891 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 386105,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (26 Oct, 27 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 22491,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 1.1% of this store's customers billed again 30+ days after their first bill, vs 2.4% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 27210,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "BLR-03 · Bengaluru - 8 salespeople rostered in the last 28 days. Store medians: 1.13 bills/day, 1.85 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nYogesh N.\nSP1145 | 21 | 2.0 | 1.85 | n/a | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.8%. Same-store peer Suresh B.: 2.1% repeat (yours 0.3%). |\nPradeep A.\nSP1144 | 23 | 1.7 | 2.00 | 100% | 0.1% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.8%. Same-store peer Suresh B.: 2.1% repeat (yours 0.2%). |\nSuresh B.\nSP1149 | 24 | 1.5 | 2.09 | 100% | 0.0% | On track - name Suresh B. as today's role model for customer returns (2.1% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Santosh V.: 2.19 items/bill (yours 2.09). |\nSantosh V.\nSP1143 | 23 | 1.1 | 2.19 | 75% | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.4% versus same-store peers 0.8%. Same-store peer Suresh B.: 2.1% repeat (yours 0.4%). |\nArun D.\nSP1151 | 23 | 1.1 | 1.84 | 67% | 0.4% | On track - name Arun D. as today's role model for customer returns (0.8% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Santosh V.: 2.19 items/bill (yours 1.84). |\nMohan M.\nSP1150 | 23 | 0.9 | 1.67 | n/a | 0.9% | On track - name Mohan M. as today's role model for customer returns (1.5% repeat-30 vs store median 0.4%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Santosh V.: 2.19 items/bill (yours 1.67). |\nVijay N.\nSP1142 | 15 | 0.9 | 1.54 | n/a | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.3% versus same-store peers 0.8%. Same-store peer Suresh B.: 2.1% repeat (yours 0.3%). |\nManjunath K.\nSP1141 | 16 | 0.6 | 1.89 | 100% | 0.0% | Today: review five customer conversations with the store lead; too few shifts or bills for reliable coaching. Same-store peer Santosh V.: 2.19 items/bill (yours 1.89). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "BLR-04": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Conversion slipping vs last month - needs review, not a priority",
+       "why": "Conversion 12.9% vs 15.0% in the previous 28 days, walk-ins steady. The two windows can have a different festival load, so this is a diagnostic: confirm the cause before assigning any action.",
+       "action": "",
+       "rupees_rough": null,
+       "rupees_basis": null
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (27 Oct, 28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 23718,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 1.3% of this store's customers billed again 30+ days after their first bill, vs 2.4% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 24934,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "A strong seller has far more Off days than the store norm",
+       "why": "Sachin M. was rostered Off 9 of the last 28 days versus a store median of 6.0, while averaging 1.7 bills a day when present (store median 1.3). Off can be leave, weekly-off or absence - the roster does not say which - so this needs a roster review, not a blame call.",
+       "action": "Action (today): the store lead reviews the roster with Sachin M. and agrees next week's availability in line with the weekly-off policy.",
+       "rupees_rough": 22920,
+       "rupees_basis": "assumption, not observed: half of their daily bills for each Off day beyond the store's median x average bill value"
+      }
+     ],
+     "team_text": "BLR-04 · Bengaluru - 8 salespeople rostered in the last 28 days. Store medians: 1.39 bills/day, 1.76 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nDeepak C.\nSP1156 | 22 | 2.2 | 1.75 | 100% | 0.6% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.2% versus same-store peers 0.3%. Same-store peer Karthik V.: 0.7% repeat (yours 0.2%). |\nArun R.\nSP1154 | 22 | 1.6 | 1.71 | 50% | 1.9% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.1% versus same-store peers 0.3%. Same-store peer Karthik V.: 0.7% repeat (yours 0.1%). |\nVenkatesh T.\nSP1159 | 23 | 1.4 | 1.59 | n/a | 0.3% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Sunil G.: 2.26 items/bill (yours 1.59). |\nSachin M.\nSP1162 | 19 | 1.7 | 1.94 | n/a | 1.5% | Today: show a jacket with every kurta set trial. You pair on 14% of kurta bills; store median is 25%. Same-store peer Sunil G.: 2.26 items/bill (yours 1.94). |\nKarthik V.\nSP1153 | 23 | 1.2 | 1.74 | n/a | 0.4% | Today: show a jacket with every kurta set trial. You pair on 11% of kurta bills; store median is 25%. Same-store peer Sunil G.: 2.26 items/bill (yours 1.74). |\nKumar B.\nSP1157 | 22 | 1.1 | 1.76 | 50% | 1.2% | On track - name Kumar B. as today's role model for customer returns (0.6% repeat-30 vs store median 0.3%) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Sunil G.: 2.26 items/bill (yours 1.76). |\nSunil G.\nSP1161 | 22 | 1.0 | 2.26 | 100% | 0.8% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.0% versus same-store peers 0.3%. Same-store peer Karthik V.: 0.7% repeat (yours 0.0%). |\nGanesh P.\nSP1160 | 21 | 1.0 | 1.86 | n/a | 0.2% | Today: take the trial-room position and ask for the next walk-in each round. 1.0 bills/day vs store median 1.4. Same-store peer Sunil G.: 2.26 items/bill (yours 1.86). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "BLR-05": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 10.9% vs same-city peers 12.7%. 39 bills / 358 walk-ins across 21 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 42568,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 1932,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "Bigger baskets",
+       "title": "Baskets are lighter than peer stores",
+       "why": "Non-event items per bill 1.59 vs same-city peers 1.87. Festival/wedding dates and packaging excluded.",
+       "action": "Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+       "rupees_rough": 47358,
+       "rupees_basis": "(peer items/bill - store items/bill) / store items/bill x 28-day revenue"
+      }
+     ],
+     "team_text": "BLR-05 · Bengaluru - 3 salespeople rostered in the last 28 days. Store medians: 0.54 bills/day, 1.60 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nHarsha Y.\nSP1164 | 23 | 0.7 | 1.53 | n/a | 0.2% | On track - name Harsha Y. as today's role model for floor conversion (0.7 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Umesh P.: 1.62 items/bill (yours 1.53). |\nUmesh P.\nSP1163 | 24 | 0.5 | 1.62 | n/a | 0.4% | On track across the three levers. Keep the standard today; no coaching note needed. Same-store peer Sunil G.: 1.60 items/bill (yours 1.62). |\nSunil G.\nSP1165 | 24 | 0.4 | 1.60 | n/a | 0.0% | Today: show a jacket with every kurta set trial. You pair on 0% of kurta bills; store median is 11%. Same-store peer Umesh P.: 1.62 items/bill (yours 1.60). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    }
+   }
+  },
+  {
+   "manager": "Mahesh Shetty",
+   "id": "AM-06",
+   "brief_text": "Mahesh Shetty (Mysuru) - brief for Sat 31 Oct 2026, generated automatically by the scheduled job (same rules as the in-browser brief). 2 of 2 stores need attention. Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.\nThis week's assigned issues (at most 5, ranked by rough rupees at stake):\nMYS-02 - More bills Walk-ins are not converting - Rs 85,745 at stake (rough)\nMYS-02 - Bigger baskets Baskets are lighter than peer stores - Rs 36,380 at stake (rough)\nMYS-01 - More bills Busy days ran short-handed - Rs 5,739 at stake (rough)\nMYS-02 - More repeat Customers are not coming back - Rs 5,435 at stake (rough)\nMYS-02 - More bills Busy days ran short-handed - Rs 2,413 at stake (rough)\nAssignments are retained for this snapshot week in the repo state file (state/weekly.json). Rs figures are rough scenarios, not measured losses.\n#1 MYS-02 · Mysuru (B) open team actionsConversion 6.6% (peers 8.4%)Items/bill 1.35 (peers 1.53)Repeat-30 3.1% (peers 4.7%)Revenue 28d Rs 3,37,812More bills Walk-ins are not convertingNon-event conversion 6.8% vs same-city peers 8.5%. 48 bills / 706 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.\nRs at stake (rough): Rs 85,745 - (peer conversion - store conversion) x walk-ins x average bill value.\nAction (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.\n\nMore bills Busy days ran short-handedOn 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (25 Oct, 28 Oct).\nRs at stake (rough): Rs 2,413 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nBigger baskets Baskets are lighter than peer storesNon-event items per bill 1.35 vs same-city peers 1.50. Festival/wedding dates and packaging excluded.\nRs at stake (rough): Rs 36,380 - (peer items/bill - store items/bill) / store items/bill x 28-day revenue.\nAction (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).\n\nMore repeat Customers are not coming backOnly 3.1% of this store's customers billed again 30+ days after their first bill, vs 4.7% at peer stores.\nRs at stake (rough): Rs 5,435 - rough: (peer repeat - store repeat) x 28-day bills x average bill value.\nAction (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.\n\n#2 MYS-01 · Mysuru (A) open team actionsConversion 8.4% (peers 6.6%)Items/bill 1.53 (peers 1.35)Repeat-30 4.7% (peers 3.1%)Revenue 28d Rs 5,35,644More bills Busy days ran short-handedOn 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (11 Oct, 28 Oct, 29 Oct).\nRs at stake (rough): Rs 5,739 - assumption, not observed: 10% of average daily sales per short-handed busy day.\nAction (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.\n\nWeek-later outcome check (historical replay)\n18-24 Oct versus 25-31 Oct. Festival/wedding dates excluded. Observed changes are not proof that coaching caused them.\nMYS-02: conversion 6.5% → 6.6% (0.2 percentage points); items/bill 1.25 → 1.42. Conversion improved.\nMYS-01: conversion 10.2% → 9.5% (-0.8 percentage points); items/bill 1.24 → 1.54. No conversion improvement.",
+   "stores": {
+    "MYS-01": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 3 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (11 Oct, 28 Oct, 29 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 5739,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      }
+     ],
+     "team_text": "MYS-01 · Mysuru - 4 salespeople rostered in the last 28 days. Store medians: 0.65 bills/day, 1.46 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nDarshan G.\nSP1169 | 24 | 1.8 | 1.49 | n/a | 0.0% | On track - name Darshan G. as today's role model for floor conversion (1.8 bills/day) at the morning huddle, and pair one junior with them for the first hour. Same-store peer Anand B.: 1.46 items/bill (yours 1.49). |\nNithin C.\nSP1167 | 23 | 0.7 | 1.27 | n/a | 0.1% | Today: when the occasion fits, show Mojari - it is on 7% of your bills versus 20% for Mysuru salespeople. Same-store peer Darshan G.: 1.49 items/bill (yours 1.27). |\nAnand B.\nSP1166 | 23 | 0.6 | 1.46 | n/a | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 1.4% versus same-store peers 2.5%. Same-store peer Nithin C.: 2.5% repeat (yours 1.4%). |\nMohan R.\nSP1170 | 22 | 0.4 | 2.38 | 0% | 0.0% | Today: review five customer conversations with the store lead; too few shifts or bills for reliable coaching. Same-store peer Darshan G.: 1.49 items/bill (yours 2.38). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    },
+    "MYS-02": {
+     "alerts": [
+      {
+       "lever": "More bills",
+       "title": "Walk-ins are not converting",
+       "why": "Non-event conversion 6.8% vs same-city peers 8.5%. 48 bills / 706 walk-ins across 27 ordinary days; 1 festival/wedding days excluded.",
+       "action": "Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+       "rupees_rough": 85745,
+       "rupees_basis": "(peer conversion - store conversion) x walk-ins x average bill value"
+      },
+      {
+       "lever": "More bills",
+       "title": "Busy days ran short-handed",
+       "why": "On 2 of the last 28 days footfall was in the store's top quartile but floor count was below its own median (25 Oct, 28 Oct).",
+       "action": "Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
+       "rupees_rough": 2413,
+       "rupees_basis": "assumption, not observed: 10% of average daily sales per short-handed busy day"
+      },
+      {
+       "lever": "Bigger baskets",
+       "title": "Baskets are lighter than peer stores",
+       "why": "Non-event items per bill 1.35 vs same-city peers 1.50. Festival/wedding dates and packaging excluded.",
+       "action": "Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+       "rupees_rough": 36380,
+       "rupees_basis": "(peer items/bill - store items/bill) / store items/bill x 28-day revenue"
+      },
+      {
+       "lever": "More repeat",
+       "title": "Customers are not coming back",
+       "why": "Only 3.1% of this store's customers billed again 30+ days after their first bill, vs 4.7% at peer stores.",
+       "action": "Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+       "rupees_rough": 5435,
+       "rupees_basis": "rough: (peer repeat - store repeat) x 28-day bills x average bill value"
+      }
+     ],
+     "team_text": "MYS-02 · Mysuru - 3 salespeople rostered in the last 28 days. Store medians: 1.09 bills/day, 1.50 items/bill.\nSalesperson | Days | Bills/day | Items/bill | Attach (sherwani set) | Disc % | Today's one action |\nSantosh B.\nSP1172 | 23 | 1.1 | 1.24 | n/a | 0.6% | Today: add one more item to every second bill - start with the mojari at billing. Items/bill 1.24 vs store median 1.50. Same-store peer Madhu G.: 1.50 items/bill (yours 1.24). |\nMadhu G.\nSP1174 | 23 | 0.6 | 1.50 | n/a | 0.0% | Today: ask the store lead for five eligible past customers and make a new-collection follow-up. Your 30-day return rate 0.0% versus same-store peers 1.7%. Same-store peer Santosh B.: 1.7% repeat (yours 0.0%). |\nMohan Y.\nSP1173 | 24 | 0.4 | 1.44 | n/a | 0.0% | Today: review five customer conversations with the store lead; too few shifts or bills for reliable coaching. Same-store peer Madhu G.: 1.50 items/bill (yours 1.44). |\nPeer basis: same store, last 28 days. Minimum 7 shifts and 10 bills for coaching; 5 category bills for attachment coaching; 20 eligible customers for repeat coaching. Repeat = another bill 30+ days after first, among customers with 30 days to return. Cards are capped at 60 words."
+    }
+   }
+  }
+ ]
+}
