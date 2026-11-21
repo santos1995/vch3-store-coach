@@ -112,21 +112,20 @@ function storeAlerts(sid){
   function inr(x){ return "Rs " + Math.round(x).toLocaleString("en-IN"); }
   if(s.conv != null && s.conv_peers != null && s.conv < 0.9 * s.conv_peers){
     out.push({ sev:"bad", t:"Walk-ins are not converting",
-      why:"Conversion " + pct(s.conv) + " vs city peers " + pct(s.conv_peers) + " over the same last 28 days (" + s.bills28 + " bills / " + s.foot28 + " walk-ins), so festival swings hit both sides of the comparison.",
+      why:"Conversion " + pct(s.conv) + " vs city peers " + pct(s.conv_peers) + " over the same last 28 days (" + s.bills28 + " bills / " + s.foot28 + " walk-ins). Festival days can still distort this; check the calendar context below before acting.",
       act:"Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
       rs:(s.conv_peers - s.conv) * s.foot28 * avgBill, rsHow:"(peer conversion - store conversion) x walk-ins x average bill value" });
   } else if(s.conv != null && s.conv_prior != null && s.conv < 0.9 * s.conv_prior){
-    out.push({ sev:"warn", t:"Conversion slipping vs last month",
-      why:"Conversion " + pct(s.conv) + " vs " + pct(s.conv_prior) + " in the previous 28 days, walk-ins steady, so the drop is not footfall.",
-      act:"Action (today): the store lead works the floor alongside the team and coaches on first-two-minute engagement at every trial.",
-      rs:(s.conv_prior - s.conv) * s.foot28 * avgBill, rsHow:"(last-month conversion - this-month conversion) x walk-ins x average bill value" });
+    out.push({ sev:"warn", t:"Conversion slipping vs last month - needs review, not a priority",
+      why:"Conversion " + pct(s.conv) + " vs " + pct(s.conv_prior) + " in the previous 28 days, walk-ins steady. The two windows can have a different festival load, so this is a diagnostic: confirm the cause before assigning any action.",
+      act:"" });
   }
   if(s.understaffed_busy_days && s.understaffed_busy_days.length >= 2){
     var days = s.understaffed_busy_days.map(dt).join(", ");
     out.push({ sev:"bad", t:"Busy days ran short-handed",
       why:"On " + s.understaffed_busy_days.length + " of the last 28 days footfall was in the store's top quartile but floor count was below its own median (" + days + ").",
       act:"Action (today): the store lead sets next week's roster so the full team is on the floor on days matching this busy pattern, and nobody's weekly off falls on those days.",
-      rs:s.understaffed_busy_days.length * (s.bills28 / 28) * 0.1 * avgBill, rsHow:"rough: one in ten walk-ins lost per short-handed busy day" });
+      rs:s.understaffed_busy_days.length * (s.bills28 / 28) * 0.1 * avgBill, rsHow:"assumption, not observed: one in ten walk-ins lost per short-handed busy day" });
   }
   if(s.ipb != null && s.ipb_peers != null && s.ipb < 0.95 * s.ipb_peers){
     out.push({ sev:"warn", t:"Baskets are lighter than peer stores",
@@ -163,13 +162,13 @@ function buildBrief(){
   allIssues.sort(function(a,b){ return b.rs - a.rs; });
   var h = "<p><b>" + esc(m.name) + "</b> (" + esc(m.city) + ") - brief for <b>Sat 31 Oct 2026</b>, generated on demand. " +
     rows.filter(function(r){ return r.score > 0; }).length + " of " + rows.length + " stores need attention. " +
-    "Store and peers are compared over the same 28-day window, so festival and season swings cancel out; upcoming festival and wedding days are shown as context, never as alerts.</p>";
+    "Stores are compared with same-city peers over the same 28-day window. This does not adjust for festivals: read numbers around festival and wedding days with care - they are shown as context, not alerts.</p>";
   if(allIssues.length){
-    h += "<p><b>This week's issues (at most 5, ranked by rupees at stake):</b></p><ol style='margin:4px 0 10px 20px'>";
+    h += "<p><b>This week's assigned issues (at most 5, ranked by rough rupees at stake):</b></p><ol style='margin:4px 0 10px 20px'>";
     allIssues.slice(0,5).forEach(function(x){
       h += "<li><b>" + x.sid + "</b> - " + esc(x.t) + " - <b>" + "Rs " + Math.round(x.rs).toLocaleString("en-IN") + "</b> at stake (rough)</li>";
     });
-    h += "</ol>" + (allIssues.length > 5 ? "<p class='muted'>+" + (allIssues.length - 5) + " more tracked in the store cards below; they wait for next week.</p>" : "");
+    h += "</ol><p class='muted'>Rs figures are rough estimates for ordering only, not measured losses." + (allIssues.length > 5 ? " +" + (allIssues.length - 5) + " lower-priority diagnostics remain in the store cards below; they are not assigned this week." : "") + "</p>";
   }
   rows.forEach(function(r, i){
     var s = r.s;
