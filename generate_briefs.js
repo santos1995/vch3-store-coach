@@ -48,10 +48,13 @@ function strip(h) {
 
 const execDate = new Date().toISOString().slice(0, 10);
 const execStamp = new Date().toISOString();
-const runEnvEarly = process.env.GITHUB_ACTIONS === 'true' ? 'unattended, GitHub Actions' : 'manual local run';
+const eventName = process.env.GITHUB_EVENT_NAME || '';
+const runEnvEarly = eventName === 'schedule' ? 'unattended scheduled run (cron, GitHub Actions)'
+  : eventName === 'workflow_dispatch' ? 'manual dispatch (workflow_dispatch, GitHub Actions)'
+  : 'manual local run';
 const out = { generated_at_utc: execStamp, data_as_of: A_AGG.data_as_of, note: "Rule-based generation from the fixed synthetic snapshot; execution time is the run time, not new data.", run_environment: runEnvEarly, managers: [] };
 let md = "# Store Coach - scheduled brief generation\n\n";
-const runEnv = process.env.GITHUB_ACTIONS === 'true' ? 'unattended, GitHub Actions' : 'manual local run';
+const runEnv = runEnvEarly;
 md += "Executed: " + execStamp + " (" + runEnv + ")\n";
 md += "Data as of: " + A_AGG.data_as_of + " (fixed synthetic snapshot; no fresh inputs)\n\n";
 
