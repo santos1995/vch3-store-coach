@@ -32,4 +32,4 @@ Snapshot: 31 Oct 2026, the pack's "today", not the actual event date. The pack s
 
 The app is static HTML and JavaScript on GitHub Pages. The optional AI note calls a separate proxy; no service secret is in browser code.
 
-History note: commit 7684c1c's generated message is inaccurate. Its actual change adds data.js, not a print-statement update. History is preserved rather than rewritten.
+History note: the generated messages of commits 7684c1c and 3fb3596 are inaccurate. 7684c1c adds data.js and 3fb3596 replaces it with regenerated aggregates; neither changes a print statement. History is preserved rather than rewritten.
