@@ -25,19 +25,28 @@ for r in rd('calendar'):
     cal[(r['date'], r['state'])] = r
 roster = defaultdict(lambda: defaultdict(int))      # store -> date -> present
 sp_present = defaultdict(lambda: defaultdict(int))  # sp -> period 'r'/'p' -> days
+sp_off = defaultdict(int)                            # sp -> Off days in RECENT
+sp_last = {}                                         # sp -> last Present date
+sp_days = defaultdict(set)                           # sp -> set of Present dates
 for r in rd('roster_daily'):
     d = date.fromisoformat(r['date'])
     if r['status'] == 'Present':
         roster[r['store_id']][r['date']] += 1
+        sp_last[r['salesperson_id']] = max(d, sp_last.get(r['salesperson_id'], d))
+        sp_days[r['salesperson_id']].add(d)
         if RECENT[0] <= d <= RECENT[1]: sp_present[r['salesperson_id']]['r'] += 1
         elif PRIOR[0] <= d <= PRIOR[1]: sp_present[r['salesperson_id']]['p'] += 1
+    elif r['status'] == 'Off' and RECENT[0] <= d <= RECENT[1]:
+        sp_off[r['salesperson_id']] += 1
 foot = defaultdict(dict)
 for r in rd('footfall_daily'):
     foot[r['store_id']][r['date']] = int(r['footfall'])
 
 bills = {}
+sp_bill_days = defaultdict(lambda: defaultdict(int))  # sp -> date -> bills
 for r in rd('bills'):
     bills[r['bill_id']] = (date.fromisoformat(r['bill_date']), r['store_id'], r['salesperson_id'], r['customer_id'])
+    sp_bill_days[r['salesperson_id']][date.fromisoformat(r['bill_date'])] += 1
 
 # per-bill line aggregates
 bl = defaultdict(lambda: {'qty': 0, 'rev': 0.0, 'disc': 0.0, 'cats': set()})
@@ -57,6 +66,9 @@ def inper(d, p): return p[0] <= d <= p[1]
 
 st = {sid: {'r': defaultdict(float), 'p': defaultdict(float)} for sid in stores}
 spm = defaultdict(lambda: defaultdict(float))
+spm_p = defaultdict(lambda: defaultdict(float))     # sp -> PRIOR window bill metrics
+sp_cat = defaultdict(lambda: defaultdict(int))      # sp -> RECENT bills containing category
+CATS = ['Sherwani', 'Kurta Set', 'Indo-Western', 'Jacket', 'Mojari']
 cust_first = {}; cust_return = defaultdict(set)     # store -> customers returned 30+ d
 cust_seen_store = defaultdict(dict)                 # store -> cust -> first date
 for bid, (d, sid, spid, cid) in bills.items():
@@ -79,6 +91,12 @@ for bid, (d, sid, spid, cid) in bills.items():
                     if l:
                         m['qty'] += l['qty']; m['rev'] += l['rev']; m['disc'] += l['disc']
                         m['sher'] += sher; m['att'] += att; m['kur'] += kur; m['jack'] += jack
+                        for cname in l['cats']:
+                            if cname in CATS: sp_cat[spid][cname] += 1
+                else:
+                    pp = spm_p[spid]
+                    pp['bills'] += 1
+                    if l: pp['qty'] += l['qty']; pp['rev'] += l['rev']
     # repeat tracking (all-time, per store)
     fs = cust_seen_store[sid]
     if cid not in fs:
@@ -162,6 +180,51 @@ for spid, m in spm.items():
            'jacket_rate': (m['jack'] / m['kur']) if m['kur'] else None}
     out['stores'][sid].setdefault('team', []).append(rec)
 
+# category shares, strong-absent and frequently-Off detection per store
+for sid, s in out['stores'].items():
+    team = s.get('team', [])
+    elig = [t for t in team if t['days_worked'] >= 7 and t['bills'] >= 10]
+    med_bpd = statistics.median([t['bpd'] for t in elig]) if elig else None
+    for t in team:
+        b = spm[t['id']]['bills']
+        t['cat'] = {c: sp_cat[t['id']][c] / b for c in CATS} if b else {}
+    absent = []
+    missing = []
+    for spid, info in sps.items():
+        if info['store_id'] != sid:
+            continue
+        pr = sp_present[spid]['p']; rc = sp_present[spid]['r']
+        lp = sp_last.get(spid)
+        if lp and END - timedelta(days=60) <= lp <= END - timedelta(days=14):
+            w0 = lp - timedelta(days=90)
+            pd90 = len([d for d in sp_days[spid] if w0 <= d <= lp])
+            bl90 = sum(v for d, v in sp_bill_days[spid].items() if w0 <= d <= lp)
+            if pd90 >= 30 and bl90 >= 40:
+                bpd_p = bl90 / pd90
+                if med_bpd is None or bpd_p >= 0.9 * med_bpd:
+                    absent.append({'id': spid, 'name': info['name'],
+                                   'last_present': lp.isoformat(),
+                                   'bpd_prior': bpd_p, 'bills_prior': int(bl90)})
+        elif rc > 0 and sp_off[spid] >= 8:
+            bpd = spm[spid]['bills'] / rc
+            if med_bpd is None or bpd >= 0.9 * med_bpd:
+                missing.append({'id': spid, 'name': info['name'], 'off': sp_off[spid],
+                                'present': rc, 'bpd': bpd})
+    s['absent_strong'] = absent
+    s['missing_shifts'] = missing
+
+# city-median category shares among eligible salespeople
+city_cat_med = {}
+for city, sids in city_peers.items():
+    pool = []
+    for sid in sids:
+        for t in out['stores'][sid].get('team', []):
+            if t['days_worked'] >= 7 and t['bills'] >= 10 and t.get('cat'):
+                pool.append(t['cat'])
+    city_cat_med[city] = {c: (statistics.median([p[c] for p in pool if c in p]) if [p[c] for p in pool if c in p] else None) for c in CATS}
+for sid, s in out['stores'].items():
+    s['city_cat'] = city_cat_med[s['city']]
+
 for am_id, am in ams.items():
     out['managers'].append({'id': am_id, 'name': am['name'], 'city': am['city'], 'stores': am['stores']})
 
@@ -171,6 +234,7 @@ first_store=defaultdict(dict); returned_store=defaultdict(set)
 first_sp=defaultdict(dict); returned_sp=defaultdict(set)
 daily_bills=defaultdict(lambda:defaultdict(int)); dq=defaultdict(set)
 normal=defaultdict(lambda:defaultdict(float)); weekly=defaultdict(lambda:defaultdict(lambda:defaultdict(float)))
+normalp=defaultdict(lambda:defaultdict(float))
 def special(sid,d):
  c=cal.get((d.isoformat(),stores[sid]['state']))
  return bool(c and (c['festival'].strip() or c['is_wedding_date']=='1'))
@@ -195,6 +259,8 @@ for sid in stores:
    n=daily_bills[sid].get(ds,0)
    if v<0 or n>v or (n>0 and v==0):dq[sid].add(ds+': bills exceed footfall or invalid footfall')
    if not special(sid,d):normal[sid]['foot']+=v;normal[sid]['days']+=1
+  if inper(d,PRIOR) and not special(sid,d) and v>0:
+   normalp[sid]['foot']+=v;normalp[sid]['days']+=1
   if date(2026,10,18)<=d<=END and not special(sid,d):
    key='before' if d<date(2026,10,25) else 'after'
    weekly[sid][key]['foot']+=v
@@ -223,6 +289,18 @@ for sid,s in out['stores'].items():
   vals=[x[field] for x in peers if x[field] is not None]
   s[field+'_peers']=statistics.median(vals) if vals else None
  s['peer_stores']=len(peers)
+# city-wide footfall trend: a market signal, not one store's execution
+for mgr in out['managers']:
+ ch=[]
+ for sid in mgr['stores']:
+  s=out['stores'][sid]
+  if s['dq'] or s['normal_days']<7 or normalp[sid]['days']<7:continue
+  fp=normalp[sid]['foot']/normalp[sid]['days']
+  if fp>0:ch.append((normal[sid]['foot']/normal[sid]['days'])/fp-1)
+ if len(ch)>=2:
+  mc=statistics.median(ch); down=sum(1 for x in ch if x<0)
+  if mc<=-0.10 and down>len(ch)/2:
+   mgr['market']={'stores_down':down,'stores_valid':len(ch),'median_chg':mc}
 # No row-level customer or transaction information is exported.
 
 print("window.AGG = "+json.dumps(out,separators=(",",":"))+";")
