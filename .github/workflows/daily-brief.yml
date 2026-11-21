@@ -1,0 +1,31 @@
+name: Daily store-coach briefs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 00:00 UTC = 05:30 IST, every morning without anyone asking
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  briefs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate all manager briefs and salesperson actions
+        run: node generate_briefs.js
+      - name: Commit generated briefs and weekly state
+        run: |
+          git config user.name "store-coach-scheduler"
+          git config user.email "store-coach-scheduler@users.noreply.github.com"
+          git add generated state
+          if git diff --cached --quiet; then
+            echo "No change in generated briefs or weekly state."
+          else
+            git commit -m "Scheduled briefs: run $(date -u '+%Y-%m-%d %H:%M UTC') (data as of 2026-10-31, fixed synthetic snapshot)"
+            git push
+          fi
