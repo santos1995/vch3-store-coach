@@ -5,42 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Store Coach - VCH3</title>
 <style>
-  :root { --ink:#1c2733; --mut:#5c6b7a; --line:#dbe3ea; --bg:#f4f6f8; --card:#fff; --acc:#0b5fff; --good:#0a7d44; --warn:#9a5b00; --bad:#b3261e; }
+
+  :root { --ink:#2b2320; --mut:#7a6a62; --line:#e8ddd0; --bg:#faf6ef; --card:#fff; --acc:#8e2434; --gold:#c9a227; --good:#1e7a4f; --warn:#b06a00; --bad:#b3261e; }
   * { box-sizing: border-box; }
   body { margin:0; font:15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
-  header { background:#14202e; color:#fff; padding:14px 20px; }
-  header h1 { margin:0; font-size:19px; }
-  header .sub { color:#a9bdd4; font-size:12.5px; margin-top:2px; }
+  header { background:linear-gradient(135deg,#4d0f1c 0%,#8e2434 55%,#a83246 100%); color:#fff; padding:16px 20px; border-bottom:3px solid var(--gold); }
+  header h1 { margin:0; font-size:20px; letter-spacing:.2px; }
+  header h1::before { content:"\1F97B  "; }
+  header h1 span { color:#f0d9a8 !important; }
+  header .sub { color:#f3e2cd; font-size:12.5px; margin-top:3px; }
   main { max-width:1080px; margin:18px auto; padding:0 16px 60px; }
-  .note { background:#fff8e6; border:1px solid #ecd9a0; border-radius:8px; padding:9px 12px; font-size:13px; margin-bottom:14px; }
-  section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:14px; }
-  h2 { margin:0 0 4px; font-size:16px; display:flex; align-items:center; gap:8px; }
-  h2 .n { background:var(--acc); color:#fff; border-radius:6px; font-size:12px; padding:2px 7px; }
+  .note { background:#fdf6e3; border:1px solid #e7cf92; border-left:4px solid var(--gold); border-radius:10px; padding:10px 13px; font-size:13px; margin-bottom:14px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:15px 17px; margin-bottom:15px; box-shadow:0 2px 10px rgba(92,18,32,.07); }
+  h2 { margin:0 0 4px; font-size:16px; display:flex; align-items:center; gap:8px; color:#5c1220; }
+  h2 .n { background:linear-gradient(135deg,#8e2434,#a83246); color:#f0d9a8; border-radius:7px; font-size:12px; padding:2px 8px; }
   .sub2 { color:var(--mut); font-size:13px; margin:0 0 10px; }
   .chip { font-size:11px; border-radius:10px; padding:2px 8px; font-weight:600; }
-  .rule { background:#e8eefc; color:#1b49a8; }
+  .rule { background:#f6e7ea; color:#8e2434; }
   .ai { background:#e4f5ea; color:#0a7d44; }
   .simchip { background:#f3e8fd; color:#6b21a8; }
   .mgr { display:flex; flex-wrap:wrap; gap:8px; }
-  .mgr button { border:1px solid var(--line); background:#fff; border-radius:8px; padding:8px 12px; cursor:pointer; font-size:13.5px; }
-  .mgr button.sel { border-color:var(--acc); background:#eef4ff; font-weight:600; }
-  button.go { background:var(--acc); color:#fff; border:0; border-radius:8px; padding:8px 14px; cursor:pointer; font-size:13.5px; }
-  button.ghost { background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px 14px; cursor:pointer; font-size:13px; }
+  .mgr button { border:1px solid var(--line); background:#fff; border-radius:9px; padding:8px 12px; cursor:pointer; font-size:13.5px; }
+  .mgr button.sel { border-color:var(--acc); background:#f9ecee; font-weight:600; color:#5c1220; box-shadow:0 1px 4px rgba(142,36,52,.18); }
+  button.go { background:linear-gradient(135deg,#8e2434,#a83246); color:#fff; border:0; border-radius:9px; padding:8px 15px; cursor:pointer; font-size:13.5px; box-shadow:0 1px 5px rgba(142,36,52,.3); }
+  button.ghost { background:#fff; border:1px solid var(--line); border-radius:9px; padding:8px 14px; cursor:pointer; font-size:13px; }
   table { border-collapse:collapse; width:100%; font-size:13px; }
   th, td { border-bottom:1px solid var(--line); text-align:left; padding:6px 8px; vertical-align:top; }
-  th { color:var(--mut); font-weight:600; font-size:12px; }
-  .alert { border:1px solid var(--line); border-left:4px solid var(--warn); border-radius:8px; padding:9px 12px; margin:8px 0; background:#fffdf6; }
+  th { color:#8e2434; font-weight:600; font-size:12px; }
+  tbody tr:nth-child(even) { background:#fbf7f0; }
+  .alert { border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:10px; padding:9px 12px; margin:8px 0; background:#fffdf6; box-shadow:0 1px 4px rgba(92,18,32,.05); }
   .alert.bad { border-left-color:var(--bad); background:#fff7f6; }
-  .alert.info { border-left-color:#64748b; background:#f8fafc; }
+  .alert.info { border-left-color:#94a3b8; background:#f8fafc; }
   .alert b.t { display:block; margin-bottom:2px; }
   .alert .why { color:var(--mut); font-size:12.5px; }
-  .alert .act { margin-top:5px; font-size:13px; background:#eef7ee; border:1px solid #cfe6cf; border-radius:6px; padding:5px 8px; }
+  .alert .act { margin-top:5px; font-size:13px; background:#eef7ee; border:1px solid #cfe6cf; border-radius:7px; padding:5px 8px; }
   .storehead { cursor:pointer; }
-  .storehead:hover { background:#f4f8ff; }
+  .storehead:hover { background:#f9f1e7; }
   .rank { font-weight:700; color:var(--acc); }
   .muted { color:var(--mut); font-size:12px; }
-  pre { white-space:pre-wrap; background:#f6f8fa; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:13px; }
-  .stat { display:inline-block; background:#f1f5f9; border-radius:6px; padding:3px 8px; margin:2px 4px 2px 0; font-size:12.5px; }
+  pre { white-space:pre-wrap; background:#fbf7f0; border:1px solid var(--line); border-radius:9px; padding:10px; font-size:13px; }
+  .stat { display:inline-block; background:#f5eee3; border:1px solid #e8ddd0; border-radius:7px; padding:3px 8px; margin:2px 4px 2px 0; font-size:12.5px; }
   footer { color:var(--mut); font-size:12px; text-align:center; margin-top:20px; }
 @media(max-width:600px){
 #teamOut table,#teamOut tbody,#teamOut tr,#teamOut td{display:block;width:100%}
