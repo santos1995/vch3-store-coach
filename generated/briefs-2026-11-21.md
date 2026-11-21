@@ -1,6 +1,6 @@
 # Store Coach - scheduled brief generation
 
-Executed: 2026-11-21T09:18:15.157Z (unattended, GitHub Actions)
+Executed: 2026-11-21T09:33:48.523Z (manual dispatch (workflow_dispatch, GitHub Actions))
 Data as of: 2026-10-31 (fixed synthetic snapshot; no fresh inputs)
 
 ## Rakesh Srivastava (Lucknow)
