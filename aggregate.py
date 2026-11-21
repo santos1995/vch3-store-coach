@@ -205,10 +205,14 @@ for sid, s in out['stores'].items():
                     absent.append({'id': spid, 'name': info['name'],
                                    'last_present': lp.isoformat(),
                                    'bpd_prior': bpd_p, 'bills_prior': int(bl90)})
-        elif rc > 0 and sp_off[spid] >= 8:
+        elif rc >= 7 and sp_off[spid] >= 8:
+            off_counts = [sp_off[p] for p, i2 in sps.items()
+                          if i2['store_id'] == sid and sp_present[p]['r'] > 0]
+            med_off = statistics.median(off_counts) if off_counts else 0
             bpd = spm[spid]['bills'] / rc
-            if med_bpd is None or bpd >= 0.9 * med_bpd:
+            if sp_off[spid] >= med_off + 2.5 and med_bpd is not None and bpd >= med_bpd:
                 missing.append({'id': spid, 'name': info['name'], 'off': sp_off[spid],
+                                'off_med': med_off, 'bpd_med': med_bpd,
                                 'present': rc, 'bpd': bpd})
     s['absent_strong'] = absent
     s['missing_shifts'] = missing
