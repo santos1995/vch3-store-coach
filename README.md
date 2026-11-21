@@ -2,7 +2,7 @@
 
 Live app: https://santos1995.github.io/vch3-store-coach/
 
-Demo highlights (47 seconds, silent screen recording): https://youtu.be/AnyTYkc0PUc
+Demo highlights (43 seconds, silent screen recording): https://youtu.be/8I59mi2RoLw
 
 Logic explanation guide (English PDF): [Manyavar-Store-Coach-Logic-English.pdf](./Manyavar-Store-Coach-Logic-English.pdf)
 
@@ -22,7 +22,7 @@ The first manager's brief generates automatically when the page opens. It refres
 ## Remaining limits
 This is a browser-local fixed-data demo, not a server scheduler or daily delivery service. No live data refresh, cross-device weekly budget, actual coaching intervention, or new week-later observation is performed. Clearing site data resets local assignments. Real unattended daily delivery requires an approved data source, scheduler and destination.
 
-Rupee figures are assumptions for ordering, not measured losses or guaranteed gains. Staffing uses a labelled 10% of average daily sales scenario. Stock is not joined; staff must check availability. Category choice is not a full assortment-avoidance model. The existing 47-second video shows an earlier working state before the browser-runner/cohort/outcome additions; it is being replaced after final verification.
+Rupee figures are assumptions for ordering, not measured losses or guaranteed gains. Staffing uses a labelled 10% of average daily sales scenario. Stock is not joined; staff must check availability. Category choice is not a full assortment-avoidance model. The 43-second video shows the final working state, including the browser-runner, cohort and outcome additions.
 
 ## Data and repository
 Snapshot: 31 Oct 2026, the pack's "today", not the actual event date. The pack says its data is synthetic. Data and briefs belong to Vedant Fashions Limited. Only small derived aggregates are committed as data.js. No raw CSVs, customer IDs, passwords or keys are included. Aggregation was run locally. The supplied calendar is the source of event dates; no dates are inferred from model knowledge.
