@@ -121,42 +121,56 @@ Array.prototype.forEach.call(document.querySelectorAll("#mgrList button"), funct
 /* ---------- alert generation (deterministic) ---------- */
 function storeAlerts(sid){
   var s = AGG.stores[sid], out = [];
-  if((s.dq||[]).length) return [{sev:"info",t:"Data issue - coaching suppressed",why:s.dq.join("; "),act:"Store lead: verify the door-camera and billing counts today before assigning performance actions."}];
+  if((s.dq||[]).length) return [{sev:"info",lever:"Data issue",t:"Data issue - coaching suppressed",why:s.dq.join("; "),act:"Store lead: verify the door-camera and billing counts today before assigning performance actions."}];
   var c=s.normal_conv, cp=s.normal_conv_peers, ip=s.normal_ipb, ipp=s.normal_ipb_peers;
-  if(s.normal_days<7 || s.peer_stores<1) return [{sev:"info",t:"Not enough comparable data",why:"Fewer than seven non-event days or no valid same-city peer. Coaching suppressed.",act:""}];
+  if(s.normal_days<7 || s.peer_stores<1) return [{sev:"info",lever:"Data issue",t:"Not enough comparable data",why:"Fewer than seven non-event days or no valid same-city peer. Coaching suppressed.",act:""}];
   var avgBill = (s.bills28 > 0) ? s.rev28 / s.bills28 : 0;
   function inr(x){ return "Rs " + Math.round(x).toLocaleString("en-IN"); }
   if(c != null && cp != null && c < 0.9 * cp){
-    out.push({ sev:"bad", t:"Walk-ins are not converting",
+    out.push({ sev:"bad", lever:"More bills", t:"Walk-ins are not converting",
       why:"Non-event conversion " + pct(c) + " vs same-city peers " + pct(cp) + ". " + s.normal_bills + " bills / " + s.normal_foot + " walk-ins across " + s.normal_days + " ordinary days; " + s.excluded_event_days + " festival/wedding days excluded.",
       act:"Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
       rs:(cp - c) * s.normal_foot * avgBill, rsHow:"(peer conversion - store conversion) x walk-ins x average bill value" });
   } else if(s.conv != null && s.conv_prior != null && s.conv < 0.9 * s.conv_prior){
-    out.push({ sev:"warn", t:"Conversion slipping vs last month - needs review, not a priority",
+    out.push({ sev:"warn", lever:"More bills", t:"Conversion slipping vs last month - needs review, not a priority",
       why:"Conversion " + pct(s.conv) + " vs " + pct(s.conv_prior) + " in the previous 28 days, walk-ins steady. The two windows can have a different festival load, so this is a diagnostic: confirm the cause before assigning any action.",
       act:"" });
   }
   if(s.understaffed_busy_days && s.understaffed_busy_days.length >= 2){
     var days = s.understaffed_busy_days.map(dt).join(", ");
-    out.push({ sev:"bad", t:"Busy days ran short-handed",
+    out.push({ sev:"bad", lever:"More bills", t:"Busy days ran short-handed",
       why:"On " + s.understaffed_busy_days.length + " of the last 28 days footfall was in the store's top quartile but floor count was below its own median (" + days + ").",
       act:"Action (today): the store lead reviews coverage for comparable busy days within approved staffing and weekly-off policy; agree any permitted shift swaps with the team.",
       rs:s.understaffed_busy_days.length * (s.bills28 / 28) * 0.1 * avgBill, rsHow:"assumption, not observed: 10% of average daily sales per short-handed busy day" });
   }
   if(ip != null && ipp != null && ip < 0.95 * ipp){
-    out.push({ sev:"warn", t:"Baskets are lighter than peer stores",
+    out.push({ sev:"warn", lever:"Bigger baskets", t:"Baskets are lighter than peer stores",
       why:"Non-event items per bill " + num(ip) + " vs same-city peers " + num(ipp) + ". Festival/wedding dates and packaging excluded.",
       act:"Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
       rs:(ipp - ip) / ip * s.rev28, rsHow:"(peer items/bill - store items/bill) / store items/bill x 28-day revenue" });
   }
   if(s.repeat30 != null && s.repeat30_peers != null && s.repeat30_peers > 0 && s.repeat30 < 0.7 * s.repeat30_peers){
-    out.push({ sev:"warn", t:"Customers are not coming back",
+    out.push({ sev:"warn", lever:"More repeat", t:"Customers are not coming back",
       why:"Only " + pct(s.repeat30) + " of this store's customers billed again 30+ days after their first bill, vs " + pct(s.repeat30_peers) + " at peer stores.",
       act:"Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
       rs:(s.repeat30_peers - s.repeat30) * s.bills28 * avgBill, rsHow:"rough: (peer repeat - store repeat) x 28-day bills x average bill value" });
   }
+  if(s.absent_strong && s.absent_strong.length){
+    var ab = s.absent_strong[0];
+    out.push({ sev:"warn", lever:"More bills", t:"An experienced seller is no longer on the roster",
+      why:ab.name + " averaged " + num(ab.bpd_prior,1) + " bills a day over their final 90 days (" + ab.bills_prior + " bills) and has not been rostered since " + dt(ab.last_present) + ". The roster shows no exit reason.",
+      act:"Action (today): the store lead confirms whether " + ab.name + " has left or is on extended leave, and covers their floor hours for this weekend within approved staffing.",
+      rs:ab.bpd_prior * avgBill * 14 * 0.5, rsHow:"assumption, not observed: half of their prior daily bills at risk for 14 days x average bill value" });
+  }
+  if(s.missing_shifts && s.missing_shifts.length){
+    var ms0 = s.missing_shifts[0];
+    out.push({ sev:"warn", lever:"More bills", t:"A reliable seller keeps missing shifts",
+      why:ms0.name + " was Off " + ms0.off + " of the last 28 days (weekly off is usually about 4) while averaging " + num(ms0.bpd,1) + " bills a day when present.",
+      act:"Action (today): the store lead reviews the roster with " + ms0.name + " and agrees next week's availability in line with the weekly-off policy.",
+      rs:(ms0.off - 4) * ms0.bpd * avgBill * 0.5, rsHow:"assumption, not observed: half of their daily bills for each Off day beyond a normal weekly-off pattern x average bill value" });
+  }
   if(s.upcoming && s.upcoming.length){
-    out.push({ sev:"info", t:"Calendar context, not an alert",
+    out.push({ sev:"info", lever:null, t:"Calendar context, not an alert",
       why: s.upcoming.map(function(u){ return (u.festival ? u.festival : "wedding date") + " on " + dt(u.date); }).join("; ") + ". Expect swings; peer comparisons use the same 28-day window for both sides, so season alone does not trigger an alert.",
       act:"" });
   }
@@ -174,7 +188,7 @@ function buildBrief(){
   }).sort(function(x, y){ return y.score - x.score; });
   S.brief = { mgr: m, rows: rows };
   var allIssues = [];
-  rows.forEach(function(r){ r.alerts.forEach(function(a){ if(a.rs != null) allIssues.push({ sid:r.sid, t:a.t, rs:a.rs }); }); });
+  rows.forEach(function(r){ r.alerts.forEach(function(a){ if(a.rs != null) allIssues.push({ sid:r.sid, t:a.t, lever:a.lever, rs:a.rs }); }); });
   allIssues.sort(function(a,b){ return b.rs - a.rs; });
   var weekKey="storecoach:2026-W44:"+S.mgr, selected=allIssues.slice(0,5), saved=false;
   try{var prior=JSON.parse(localStorage.getItem(weekKey)||"null");
@@ -182,13 +196,17 @@ function buildBrief(){
     else localStorage.setItem(weekKey,JSON.stringify(selected.map(function(x){return x.sid+"|"+x.t;})));
   }catch(e){}
 
-  var h = "<p><b>" + esc(m.name) + "</b> (" + esc(m.city) + ") - brief for <b>Sat 31 Oct 2026</b>, generated automatically in this browser. " +
+  var h = "";
+  if(m.market){
+    h += "<div class='alert info'><b>City market, not one store: " + esc(m.city) + " footfall is trending down about " + Math.round(-m.market.median_chg*100) + "%</b><div class='why'>" + m.market.stores_down + " of " + m.market.stores_valid + " comparable " + esc(m.city) + " stores are down versus the previous 28 days, festival/wedding dates excluded on both sides. This is a market signal, not one store's execution.</div><div class='act'>Action (today): mention the city trend to your regional lead on today's call; keep store coaching on baskets and repeat.</div></div>";
+  }
+  h += "<p><b>" + esc(m.name) + "</b> (" + esc(m.city) + ") - brief for <b>Sat 31 Oct 2026</b>, generated automatically in this browser. " +
     rows.filter(function(r){ return r.score > 0; }).length + " of " + rows.length + " stores need attention. " +
     "Conversion and basket priorities exclude state-calendar festival/wedding dates for each store and peer. Bad footfall data suppresses coaching. This is a conservative date filter, not a causal seasonal model.</p>";
   if(allIssues.length){
     h += "<p><b>This week's assigned issues (at most 5, ranked by rough rupees at stake):</b></p><ol style='margin:4px 0 10px 20px'>";
     selected.forEach(function(x){
-      h += "<li><b>" + x.sid + "</b> - " + esc(x.t) + " - <b>" + "Rs " + Math.round(x.rs).toLocaleString("en-IN") + "</b> at stake (rough)</li>";
+      h += "<li><b>" + x.sid + "</b> - " + (x.lever ? "<span class='chip rule'>" + esc(x.lever) + "</span> " : "") + esc(x.t) + " - <b>" + "Rs " + Math.round(x.rs).toLocaleString("en-IN") + "</b> at stake (rough)</li>";
     });
     h += "</ol><p class='muted'>Assignments are retained for this snapshot week in this browser only. Rs figures are rough scenarios, not measured losses." + (allIssues.length > 5 ? " +" + (allIssues.length - 5) + " lower-priority diagnostics remain in the store cards below; they are not assigned this week." : "") + "</p>";
   }
@@ -205,7 +223,7 @@ function buildBrief(){
       h += "<div class='why'>No alert: tracking at or above peers on all three levers. Name today's role models in the team view so others can copy them.</div>";
     }
     r.alerts.forEach(function(a){
-      h += "<div style='margin-top:6px'><b>" + esc(a.t) + "</b><div class='why'>" + esc(a.why) + "</div>" +
+      h += "<div style='margin-top:6px'><b>" + (a.lever ? "<span class='chip rule'>" + esc(a.lever) + "</span> " : "") + esc(a.t) + "</b><div class='why'>" + esc(a.why) + "</div>" +
         (a.rs != null ? "<div class='why'><b>Rs at stake (rough): Rs " + Math.round(a.rs).toLocaleString("en-IN") + "</b> - " + esc(a.rsHow) + ".</div>" : "") +
         (a.act ? "<div class='act'>" + esc(a.act) + "</div>" : "") + "</div>";
     });
@@ -244,6 +262,14 @@ function buildTeam(sid){
   h += "<table><tr><th>Salesperson</th><th>Days</th><th>Bills/day</th><th>Items/bill</th><th>Attach (sherwani set)</th><th>Disc %</th><th>Today's one action</th></tr>";
   team.forEach(function(t){
     var act, cls = "", roleMetric="ipb";
+    var catWorst = null;
+    if(t.cat && s.city_cat && t.days_worked>=7 && t.bills>=10){
+      ["Sherwani","Kurta Set","Indo-Western","Jacket","Mojari"].forEach(function(cname){
+        var cm = s.city_cat[cname]; if(cm == null || cm < 0.15) return;
+        var sh = (t.cat[cname] != null) ? t.cat[cname] : 0;
+        if(sh <= 0.5 * cm && (!catWorst || sh / cm < catWorst.r)) catWorst = {c:cname, sh:sh, cm:cm, r:sh/cm};
+      });
+    }
     var peers=team.filter(function(x){return x.id!==t.id&&x.days_worked>=7&&x.bills>=10;});
     var role=peers.slice().sort(function(a,b){return (b.ipb||0)-(a.ipb||0);})[0];
     var repeatPeers=peers.filter(function(x){return x.repeat_eligible>=20&&x.repeat30!=null;});
@@ -259,13 +285,16 @@ function buildTeam(sid){
       act = "Today: bring the safa, mojari and mala to every sherwani trial without being asked (check sizes in stock first). You attach on " + pct(t.attach_rate,0) + " of sherwani bills; store median is " + pct(mAtt,0) + ".";
     } else if(t.kurta_bills>=5 && mJack != null && t.jacket_rate != null && t.jacket_rate < mJack - 0.1){
       act = "Today: show a jacket with every kurta set trial. You pair on " + pct(t.jacket_rate,0) + " of kurta bills; store median is " + pct(mJack,0) + ".";
+    } else if(catWorst){
+      act = "Today: when the occasion fits, show " + catWorst.c + " - it is on " + pct(catWorst.sh,0) + " of your bills versus " + pct(catWorst.cm,0) + " for " + s.city + " salespeople.";
     } else if(t.ipb != null && t.ipb < 0.85 * mIpb){
       act = "Today: add one more item to every second bill - start with the mojari at billing. Items/bill " + num(t.ipb) + " vs store median " + num(mIpb) + ".";
     } else if(t.bpd < 0.8 * mBpd){
       act = "Today: take the trial-room position and ask for the next walk-in each round. " + num(t.bpd,1) + " bills/day vs store median " + num(mBpd,1) + ".";
     } else {
       var best = null;
-      if(mAtt != null && t.attach_rate != null && t.attach_rate >= mAtt + 0.1) best = "attach selling (" + pct(t.attach_rate,0) + " on sherwani bills)";
+      if(t.repeat_eligible>=20 && repeatMed != null && t.repeat30 != null && t.repeat30 >= repeatMed * 1.3 && t.repeat30 > 0) best = "customer returns (" + pct(t.repeat30) + " repeat-30 vs store median " + pct(repeatMed) + ")";
+      else if(mAtt != null && t.attach_rate != null && t.attach_rate >= mAtt + 0.1) best = "attach selling (" + pct(t.attach_rate,0) + " on sherwani bills)";
       else if(t.ipb != null && t.ipb >= mIpb * 1.15) best = "basket building (" + num(t.ipb) + " items/bill)";
       else if(t.bpd >= mBpd * 1.2) best = "floor conversion (" + num(t.bpd,1) + " bills/day)";
       act = best ? "On track - name " + t.name + " as today's role model for " + best + " at the morning huddle, and pair one junior with them for the first hour."
