@@ -63,7 +63,7 @@
   <div class="sub">Vibe Coders Hackathon Edition 3 · Manyavar (Vedant Fashions) problem statement A · Data snapshot: <b>close of Sat 31 Oct 2026</b> (the pack's "today", not the real current date)</div>
 </header>
 <main>
-  <div class="note"><b>Demo data.</b> Every store, salesperson and number here is synthetic sample data from the hackathon pack - no real store, salesperson or customer. This coach <b>recommends</b>; it never messages anyone by itself. The brief generates automatically when this page opens and refreshes at the next local day while it stays open. This browser-only demo uses a fixed 31 Oct snapshot; it is not a server schedule or daily delivery. Five assignments are retained per manager and snapshot week in this browser only; clearing site data resets them. Rule-based analytics are labelled <span class="chip rule">rule-based</span>; the optional manager note is drafted by Sarvam 105B through a hardened proxy and the badge says when it is really AI.</div>
+  <div class="note"><b>Demo data.</b> Every store, salesperson and number here is synthetic sample data from the hackathon pack - no real store, salesperson or customer. This coach <b>recommends</b>; it never messages anyone by itself. The brief generates automatically when this page opens and refreshes at the next local day while it stays open. This demo uses a fixed 31 Oct snapshot. A scheduled job (GitHub Actions, daily 05:30 IST) regenerates every manager brief and salesperson action from that same fixed snapshot into <code>generated/</code> (weekly state in <code>state/weekly.json</code>); the page you are viewing is browser-only and uses no server. Five assignments are retained per manager and snapshot week: in this browser for the page (clearing site data resets them) and in <code>state/weekly.json</code> for scheduled runs. Rule-based analytics are labelled <span class="chip rule">rule-based</span>; the optional manager note is drafted by Sarvam 105B through a hardened proxy and the badge says when it is really AI.</div>
 
   <section id="s1">
     <h2><span class="n">1</span>Whose morning brief? <span class="right chip rule">rule-based</span></h2>
@@ -164,8 +164,8 @@ function storeAlerts(sid){
   }
   if(s.missing_shifts && s.missing_shifts.length){
     var ms0 = s.missing_shifts[0];
-    out.push({ sev:"warn", lever:"More bills", t:"A reliable seller keeps missing shifts",
-      why:ms0.name + " was Off " + ms0.off + " of the last 28 days versus a store median of " + num(ms0.off_med,1) + ", while averaging " + num(ms0.bpd,1) + " bills a day when present (store median " + num(ms0.bpd_med,1) + "). Off is whatever the roster marks; the alert stands because both gaps are wide versus this store's own team.",
+    out.push({ sev:"warn", lever:"More bills", t:"A strong seller has far more Off days than the store norm",
+      why:ms0.name + " was rostered Off " + ms0.off + " of the last 28 days versus a store median of " + num(ms0.off_med,1) + ", while averaging " + num(ms0.bpd,1) + " bills a day when present (store median " + num(ms0.bpd_med,1) + "). Off can be leave, weekly-off or absence - the roster does not say which - so this needs a roster review, not a blame call.",
       act:"Action (today): the store lead reviews the roster with " + ms0.name + " and agrees next week's availability in line with the weekly-off policy.",
       rs:(ms0.off - ms0.off_med) * ms0.bpd * avgBill * 0.5, rsHow:"assumption, not observed: half of their daily bills for each Off day beyond the store's median x average bill value" });
   }
