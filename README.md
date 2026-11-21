@@ -4,6 +4,8 @@ Live app: https://santos1995.github.io/vch3-store-coach/
 
 Demo highlights (47 seconds, silent screen recording): https://youtu.be/AnyTYkc0PUc
 
+Logic explanation guide (English PDF): [Manyavar-Store-Coach-Logic-English.pdf](./Manyavar-Store-Coach-Logic-English.pdf)
+
 Built from scratch at Vibe Coders Hackathon Edition 3 (Kolkata, 21 Nov 2026) for case study A: Store Coach, Vedant Fashions Limited.
 
 ## Working demo
