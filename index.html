@@ -42,6 +42,19 @@
   pre { white-space:pre-wrap; background:#f6f8fa; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:13px; }
   .stat { display:inline-block; background:#f1f5f9; border-radius:6px; padding:3px 8px; margin:2px 4px 2px 0; font-size:12.5px; }
   footer { color:var(--mut); font-size:12px; text-align:center; margin-top:20px; }
+@media(max-width:600px){
+#teamOut table,#teamOut tbody,#teamOut tr,#teamOut td{display:block;width:100%}
+#teamOut tr:first-child{display:none}
+#teamOut tr{border:1px solid var(--line);border-radius:8px;padding:10px;margin:12px 0}
+#teamOut td{padding:3px 0;border:0}
+#teamOut td:nth-child(2)::before{content:"Days: "}
+#teamOut td:nth-child(3)::before{content:"Bills/day: "}
+#teamOut td:nth-child(4)::before{content:"Items/bill: "}
+#teamOut td:nth-child(5)::before{content:"Sherwani attachment: "}
+#teamOut td:nth-child(6)::before{content:"Discount: "}
+#teamOut td:last-child{background:#eef7ee;padding:9px;margin-top:6px;border-radius:6px;font-size:14px}
+#teamOut td:last-child::before{content:"Today's action: ";font-weight:700}
+}
 </style>
 </head>
 <body>
