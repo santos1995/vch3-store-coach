@@ -165,9 +165,9 @@ function storeAlerts(sid){
   if(s.missing_shifts && s.missing_shifts.length){
     var ms0 = s.missing_shifts[0];
     out.push({ sev:"warn", lever:"More bills", t:"A reliable seller keeps missing shifts",
-      why:ms0.name + " was Off " + ms0.off + " of the last 28 days (weekly off is usually about 4) while averaging " + num(ms0.bpd,1) + " bills a day when present.",
+      why:ms0.name + " was Off " + ms0.off + " of the last 28 days versus a store median of " + num(ms0.off_med,1) + ", while averaging " + num(ms0.bpd,1) + " bills a day when present (store median " + num(ms0.bpd_med,1) + "). Off is whatever the roster marks; the alert stands because both gaps are wide versus this store's own team.",
       act:"Action (today): the store lead reviews the roster with " + ms0.name + " and agrees next week's availability in line with the weekly-off policy.",
-      rs:(ms0.off - 4) * ms0.bpd * avgBill * 0.5, rsHow:"assumption, not observed: half of their daily bills for each Off day beyond a normal weekly-off pattern x average bill value" });
+      rs:(ms0.off - ms0.off_med) * ms0.bpd * avgBill * 0.5, rsHow:"assumption, not observed: half of their daily bills for each Off day beyond the store's median x average bill value" });
   }
   if(s.upcoming && s.upcoming.length){
     out.push({ sev:"info", lever:null, t:"Calendar context, not an alert",
