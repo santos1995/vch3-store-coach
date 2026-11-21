@@ -108,35 +108,41 @@ Array.prototype.forEach.call(document.querySelectorAll("#mgrList button"), funct
 /* ---------- alert generation (deterministic) ---------- */
 function storeAlerts(sid){
   var s = AGG.stores[sid], out = [];
-  var teamTop = (s.team||[]).slice().sort(function(a,b){ return b.days_worked - a.days_worked; })[0];
+  var avgBill = (s.bills28 > 0) ? s.rev28 / s.bills28 : 0;
+  function inr(x){ return "Rs " + Math.round(x).toLocaleString("en-IN"); }
   if(s.conv != null && s.conv_peers != null && s.conv < 0.9 * s.conv_peers){
     out.push({ sev:"bad", t:"Walk-ins are not converting",
-      why:"Conversion " + pct(s.conv) + " vs city peers " + pct(s.conv_peers) + " over the last 28 days (" + s.bills28 + " bills / " + s.foot28 + " walk-ins).",
-      act:"Action (today, Sat 31 Oct): put the two strongest closers on the floor 4-8 pm and have the store lead greet-and-route every walk-in for the first 2 minutes." });
+      why:"Conversion " + pct(s.conv) + " vs city peers " + pct(s.conv_peers) + " over the same last 28 days (" + s.bills28 + " bills / " + s.foot28 + " walk-ins), so festival swings hit both sides of the comparison.",
+      act:"Action (today, Sat 31 Oct): put the two highest bills-per-day salespeople on the floor together today, and have the store lead personally greet and route every walk-in within the first two minutes.",
+      rs:(s.conv_peers - s.conv) * s.foot28 * avgBill, rsHow:"(peer conversion - store conversion) x walk-ins x average bill value" });
   } else if(s.conv != null && s.conv_prior != null && s.conv < 0.9 * s.conv_prior){
     out.push({ sev:"warn", t:"Conversion slipping vs last month",
-      why:"Conversion " + pct(s.conv) + " vs " + pct(s.conv_prior) + " in the previous 28 days, walk-ins steady.",
-      act:"Action (today): store lead shadows the floor 4-6 pm and coaches on first-2-minute engagement." });
+      why:"Conversion " + pct(s.conv) + " vs " + pct(s.conv_prior) + " in the previous 28 days, walk-ins steady, so the drop is not footfall.",
+      act:"Action (today): the store lead works the floor alongside the team and coaches on first-two-minute engagement at every trial.",
+      rs:(s.conv_prior - s.conv) * s.foot28 * avgBill, rsHow:"(last-month conversion - this-month conversion) x walk-ins x average bill value" });
   }
   if(s.understaffed_busy_days && s.understaffed_busy_days.length >= 2){
     var days = s.understaffed_busy_days.map(dt).join(", ");
     out.push({ sev:"bad", t:"Busy days ran short-handed",
       why:"On " + s.understaffed_busy_days.length + " of the last 28 days footfall was in the store's top quartile but floor count was below its own median (" + days + ").",
-      act:"Action (this weekend): keep the full roster on the floor Sun 1 Nov, 4-8 pm" + (teamTop ? "; move " + teamTop.name + "'s weekly off to Tuesday" : "") + "." });
+      act:"Action (today): the store lead sets next week's roster so the full team is on the floor on days matching this busy pattern, and nobody's weekly off falls on those days.",
+      rs:s.understaffed_busy_days.length * (s.bills28 / 28) * 0.1 * avgBill, rsHow:"rough: one in ten walk-ins lost per short-handed busy day" });
   }
   if(s.ipb != null && s.ipb_peers != null && s.ipb < 0.95 * s.ipb_peers){
     out.push({ sev:"warn", t:"Baskets are lighter than peer stores",
-      why:"Items per bill " + num(s.ipb) + " vs city peers " + num(s.ipb_peers) + " (packaging excluded).",
-      act:"Action (today): at every sherwani trial, the salesperson must bring the safa-mojari-mala set to the trial room without being asked." });
+      why:"Items per bill " + num(s.ipb) + " vs city peers " + num(s.ipb_peers) + " over the same window (packaging excluded).",
+      act:"Action (today): at every sherwani trial, the salesperson brings the safa-mojari-mala set to the trial room without being asked (check the sizes are in stock first).",
+      rs:(s.ipb_peers - s.ipb) / s.ipb * s.rev28, rsHow:"(peer items/bill - store items/bill) / store items/bill x 28-day revenue" });
   }
   if(s.repeat30 != null && s.repeat30_peers != null && s.repeat30_peers > 0 && s.repeat30 < 0.7 * s.repeat30_peers){
     out.push({ sev:"warn", t:"Customers are not coming back",
       why:"Only " + pct(s.repeat30) + " of this store's customers billed again 30+ days after their first bill, vs " + pct(s.repeat30_peers) + " at peer stores.",
-      act:"Action (today): the store lead calls five lapsed wedding-season customers with the alteration-ready follow-up before closing." });
+      act:"Action (today): the store lead calls five lapsed wedding-season customers with the new-collection follow-up before closing.",
+      rs:(s.repeat30_peers - s.repeat30) * s.bills28 * avgBill, rsHow:"rough: (peer repeat - store repeat) x 28-day bills x average bill value" });
   }
   if(s.upcoming && s.upcoming.length){
     out.push({ sev:"info", t:"Calendar context, not an alert",
-      why: s.upcoming.map(function(u){ return (u.festival ? u.festival : "wedding date") + " on " + dt(u.date); }).join("; ") + ". Expect swings; do not read them as performance.",
+      why: s.upcoming.map(function(u){ return (u.festival ? u.festival : "wedding date") + " on " + dt(u.date); }).join("; ") + ". Expect swings; peer comparisons use the same 28-day window for both sides, so season alone does not trigger an alert.",
       act:"" });
   }
   return out;
@@ -152,8 +158,19 @@ function buildBrief(){
     return { sid: sid, alerts: a, score: attentionScore(a), s: AGG.stores[sid] };
   }).sort(function(x, y){ return y.score - x.score; });
   S.brief = { mgr: m, rows: rows };
+  var allIssues = [];
+  rows.forEach(function(r){ r.alerts.forEach(function(a){ if(a.rs != null) allIssues.push({ sid:r.sid, t:a.t, rs:a.rs }); }); });
+  allIssues.sort(function(a,b){ return b.rs - a.rs; });
   var h = "<p><b>" + esc(m.name) + "</b> (" + esc(m.city) + ") - brief for <b>Sat 31 Oct 2026</b>, generated on demand. " +
-    rows.filter(function(r){ return r.score > 0; }).length + " of " + rows.length + " stores need attention.</p>";
+    rows.filter(function(r){ return r.score > 0; }).length + " of " + rows.length + " stores need attention. " +
+    "Store and peers are compared over the same 28-day window, so festival and season swings cancel out; upcoming festival and wedding days are shown as context, never as alerts.</p>";
+  if(allIssues.length){
+    h += "<p><b>This week's issues (at most 5, ranked by rupees at stake):</b></p><ol style='margin:4px 0 10px 20px'>";
+    allIssues.slice(0,5).forEach(function(x){
+      h += "<li><b>" + x.sid + "</b> - " + esc(x.t) + " - <b>" + "Rs " + Math.round(x.rs).toLocaleString("en-IN") + "</b> at stake (rough)</li>";
+    });
+    h += "</ol>" + (allIssues.length > 5 ? "<p class='muted'>+" + (allIssues.length - 5) + " more tracked in the store cards below; they wait for next week.</p>" : "");
+  }
   rows.forEach(function(r, i){
     var s = r.s;
     h += "<div class='alert " + (r.score ? (r.score >= 3 ? "bad" : "") : "info") + "'>" +
@@ -167,7 +184,9 @@ function buildBrief(){
       h += "<div class='why'>No alert: tracking at or above peers on all three levers. Name today's role models in the team view so others can copy them.</div>";
     }
     r.alerts.forEach(function(a){
-      h += "<div style='margin-top:6px'><b>" + esc(a.t) + "</b><div class='why'>" + esc(a.why) + "</div>" + (a.act ? "<div class='act'>" + esc(a.act) + "</div>" : "") + "</div>";
+      h += "<div style='margin-top:6px'><b>" + esc(a.t) + "</b><div class='why'>" + esc(a.why) + "</div>" +
+        (a.rs != null ? "<div class='why'><b>Rs at stake (rough): Rs " + Math.round(a.rs).toLocaleString("en-IN") + "</b> - " + esc(a.rsHow) + ".</div>" : "") +
+        (a.act ? "<div class='act'>" + esc(a.act) + "</div>" : "") + "</div>";
     });
     h += "</div>";
   });
@@ -201,13 +220,13 @@ function buildTeam(sid){
     if(t.disc_pct > avgDisc + 3){
       act = "Keep discounts under " + (avgDisc + 3).toFixed(1) + "% today; anything above needs the store lead's nod. Usual habit: " + t.disc_pct.toFixed(1) + "% vs store " + avgDisc.toFixed(1) + "%.";
     } else if(mAtt != null && t.attach_rate != null && t.attach_rate < mAtt - 0.1){
-      act = "Today: bring the safa, mojari and mala to every sherwani trial without being asked. You attach on " + pct(t.attach_rate,0) + " of sherwani bills; store median is " + pct(mAtt,0) + ".";
+      act = "Today: bring the safa, mojari and mala to every sherwani trial without being asked (check sizes in stock first). You attach on " + pct(t.attach_rate,0) + " of sherwani bills; store median is " + pct(mAtt,0) + ".";
     } else if(mJack != null && t.jacket_rate != null && t.jacket_rate < mJack - 0.1){
       act = "Today: show a jacket with every kurta set trial. You pair on " + pct(t.jacket_rate,0) + " of kurta bills; store median is " + pct(mJack,0) + ".";
     } else if(t.ipb != null && t.ipb < 0.85 * mIpb){
       act = "Today: add one more item to every second bill - start with the mojari at billing. Items/bill " + num(t.ipb) + " vs store median " + num(mIpb) + ".";
     } else if(t.bpd < 0.8 * mBpd){
-      act = "Today: take the trial-room position 4-8 pm and ask for the next walk-in each round. " + num(t.bpd,1) + " bills/day vs store median " + num(mBpd,1) + ".";
+      act = "Today: take the trial-room position and ask for the next walk-in each round. " + num(t.bpd,1) + " bills/day vs store median " + num(mBpd,1) + ".";
     } else {
       var best = null;
       if(mAtt != null && t.attach_rate != null && t.attach_rate >= mAtt + 0.1) best = "attach selling (" + pct(t.attach_rate,0) + " on sherwani bills)";
