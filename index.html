@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Store Coach - VCH3</title>
+<style>
+  :root { --ink:#1c2733; --mut:#5c6b7a; --line:#dbe3ea; --bg:#f4f6f8; --card:#fff; --acc:#0b5fff; --good:#0a7d44; --warn:#9a5b00; --bad:#b3261e; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color:var(--ink); background:var(--bg); }
+  header { background:#14202e; color:#fff; padding:14px 20px; }
+  header h1 { margin:0; font-size:19px; }
+  header .sub { color:#a9bdd4; font-size:12.5px; margin-top:2px; }
+  main { max-width:1080px; margin:18px auto; padding:0 16px 60px; }
+  .note { background:#fff8e6; border:1px solid #ecd9a0; border-radius:8px; padding:9px 12px; font-size:13px; margin-bottom:14px; }
+  section { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:14px; }
+  h2 { margin:0 0 4px; font-size:16px; display:flex; align-items:center; gap:8px; }
+  h2 .n { background:var(--acc); color:#fff; border-radius:6px; font-size:12px; padding:2px 7px; }
+  .sub2 { color:var(--mut); font-size:13px; margin:0 0 10px; }
+  .chip { font-size:11px; border-radius:10px; padding:2px 8px; font-weight:600; }
+  .rule { background:#e8eefc; color:#1b49a8; }
+  .ai { background:#e4f5ea; color:#0a7d44; }
+  .simchip { background:#f3e8fd; color:#6b21a8; }
+  .mgr { display:flex; flex-wrap:wrap; gap:8px; }
+  .mgr button { border:1px solid var(--line); background:#fff; border-radius:8px; padding:8px 12px; cursor:pointer; font-size:13.5px; }
+  .mgr button.sel { border-color:var(--acc); background:#eef4ff; font-weight:600; }
+  button.go { background:var(--acc); color:#fff; border:0; border-radius:8px; padding:8px 14px; cursor:pointer; font-size:13.5px; }
+  button.ghost { background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px 14px; cursor:pointer; font-size:13px; }
+  table { border-collapse:collapse; width:100%; font-size:13px; }
+  th, td { border-bottom:1px solid var(--line); text-align:left; padding:6px 8px; vertical-align:top; }
+  th { color:var(--mut); font-weight:600; font-size:12px; }
+  .alert { border:1px solid var(--line); border-left:4px solid var(--warn); border-radius:8px; padding:9px 12px; margin:8px 0; background:#fffdf6; }
+  .alert.bad { border-left-color:var(--bad); background:#fff7f6; }
+  .alert.info { border-left-color:#64748b; background:#f8fafc; }
+  .alert b.t { display:block; margin-bottom:2px; }
+  .alert .why { color:var(--mut); font-size:12.5px; }
+  .alert .act { margin-top:5px; font-size:13px; background:#eef7ee; border:1px solid #cfe6cf; border-radius:6px; padding:5px 8px; }
+  .storehead { cursor:pointer; }
+  .storehead:hover { background:#f4f8ff; }
+  .rank { font-weight:700; color:var(--acc); }
+  .muted { color:var(--mut); font-size:12px; }
+  pre { white-space:pre-wrap; background:#f6f8fa; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:13px; }
+  .stat { display:inline-block; background:#f1f5f9; border-radius:6px; padding:3px 8px; margin:2px 4px 2px 0; font-size:12.5px; }
+  footer { color:var(--mut); font-size:12px; text-align:center; margin-top:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Store Coach <span style="font-weight:400;color:#a9bdd4">· More bills. Bigger baskets. More repeat.</span></h1>
+  <div class="sub">Vibe Coders Hackathon Edition 3 · Manyavar (Vedant Fashions) problem statement A · Data snapshot: <b>close of Sat 31 Oct 2026</b> (the pack's "today", not the real current date)</div>
+</header>
+<main>
+  <div class="note"><b>Demo data.</b> Every store, salesperson and number here is synthetic sample data from the hackathon pack - no real store, salesperson or customer. This coach <b>recommends</b>; it never messages anyone by itself. The morning brief is generated when you click the button (a real rollout would run it before the manager's day starts). Rule-based analytics are labelled <span class="chip rule">rule-based</span>; the optional manager note is drafted by Sarvam 105B through a hardened proxy and the badge says when it is really AI.</div>
+
+  <section id="s1">
+    <h2><span class="n">1</span>Whose morning brief? <span class="right chip rule">rule-based</span></h2>
+    <p class="sub2">Six area managers, twenty stores. Fair comparison: stores and salespeople are measured against peers in their own city, not the whole country.</p>
+    <div class="mgr" id="mgrList"></div>
+  </section>
+
+  <section id="s2">
+    <h2><span class="n">2</span>Morning brief - stores that need attention <span class="chip rule">rule-based</span></h2>
+    <p class="sub2">Each alert says why in plain words and names who does what, when - everything doable today with the people and stock the store already has. Festival and wedding days are context, not alerts.</p>
+    <div id="briefOut"><p class="muted">Pick an area manager above.</p></div>
+  </section>
+
+  <section id="s3">
+    <h2><span class="n">3</span>One action per salesperson for today <span class="chip rule">rule-based</span></h2>
+    <p class="sub2">Each person is compared with peers in their own store. One thing to do better today - no dashboards to read, just the action.</p>
+    <div id="teamOut"><p class="muted">Open a store from the brief.</p></div>
+  </section>
+
+  <section id="s4">
+    <h2><span class="n">4</span>Draft the manager's note <span class="right" id="aiBadge"><span class="chip rule">not drafted yet</span></span></h2>
+    <p class="sub2">Optional: Sarvam 105B writes the short WhatsApp-style note the area manager would paste to their group. The agent drafts; the human reads and sends. Nothing is sent by this app.</p>
+    <p><button class="go" id="btnAi" disabled>Draft note with Sarvam 105B</button> <span class="muted" id="aiHint">build the brief first</span></p>
+    <div id="aiOut"></div>
+  </section>
+
+  <footer>Built during Vibe Coders Hackathon Edition 3 (21 Nov 2026). Source: github.com/santos1995/vch3-store-coach</footer>
+</main>
+<script src="data.js"></script>
+<script>
+"use strict";
+var END = "2026-10-31";
+function pct(x, d){ return x==null ? "n/a" : (x*100).toFixed(d==null?1:d) + "%"; }
+function num(x, d){ return x==null ? "n/a" : x.toFixed(d==null?2:d); }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+function dt(iso){ var p = iso.split("-"); return p[2] + " " + ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][+p[1]-1]; }
+
+var S = { mgr:null, brief:null, store:null };
+
+/* ---------- manager list ---------- */
+var mgrHtml = "";
+AGG.managers.forEach(function(m){
+  mgrHtml += "<button data-am='" + m.id + "'>" + esc(m.name) + " <span class='muted'>" + esc(m.city) + " · " + m.stores.length + " stores</span></button>";
+});
+document.getElementById("mgrList").innerHTML = mgrHtml;
+Array.prototype.forEach.call(document.querySelectorAll("#mgrList button"), function(b){
+  b.onclick = function(){
+    Array.prototype.forEach.call(document.querySelectorAll("#mgrList button"), function(x){ x.className = ""; });
+    b.className = "sel";
+    S.mgr = b.getAttribute("data-am");
+    buildBrief();
+  };
+});
+
+/* ---------- alert generation (deterministic) ---------- */
+function storeAlerts(sid){
+  var s = AGG.stores[sid], out = [];
+  var teamTop = (s.team||[]).slice().sort(function(a,b){ return b.days_worked - a.days_worked; })[0];
+  if(s.conv != null && s.conv_peers != null && s.conv < 0.9 * s.conv_peers){
+    out.push({ sev:"bad", t:"Walk-ins are not converting",
+      why:"Conversion " + pct(s.conv) + " vs city peers " + pct(s.conv_peers) + " over the last 28 days (" + s.bills28 + " bills / " + s.foot28 + " walk-ins).",
+      act:"Action (today, Sat 31 Oct): put the two strongest closers on the floor 4-8 pm and have the store lead greet-and-route every walk-in for the first 2 minutes." });
+  } else if(s.conv != null && s.conv_prior != null && s.conv < 0.9 * s.conv_prior){
+    out.push({ sev:"warn", t:"Conversion slipping vs last month",
+      why:"Conversion " + pct(s.conv) + " vs " + pct(s.conv_prior) + " in the previous 28 days, walk-ins steady.",
+      act:"Action (today): store lead shadows the floor 4-6 pm and coaches on first-2-minute engagement." });
+  }
+  if(s.understaffed_busy_days && s.understaffed_busy_days.length >= 2){
+    var days = s.understaffed_busy_days.map(dt).join(", ");
+    out.push({ sev:"bad", t:"Busy days ran short-handed",
+      why:"On " + s.understaffed_busy_days.length + " of the last 28 days footfall was in the store's top quartile but floor count was below its own median (" + days + ").",
+      act:"Action (this weekend): keep the full roster on the floor Sun 1 Nov, 4-8 pm" + (teamTop ? "; move " + teamTop.name + "'s weekly off to Tuesday" : "") + "." });
+  }
+  if(s.ipb != null && s.ipb_peers != null && s.ipb < 0.95 * s.ipb_peers){
+    out.push({ sev:"warn", t:"Baskets are lighter than peer stores",
+      why:"Items per bill " + num(s.ipb) + " vs city peers " + num(s.ipb_peers) + " (packaging excluded).",
+      act:"Action (today): at every sherwani trial, the salesperson must bring the safa-mojari-mala set to the trial room without being asked." });
+  }
+  if(s.repeat30 != null && s.repeat30_peers != null && s.repeat30_peers > 0 && s.repeat30 < 0.7 * s.repeat30_peers){
+    out.push({ sev:"warn", t:"Customers are not coming back",
+      why:"Only " + pct(s.repeat30) + " of this store's customers billed again 30+ days after their first bill, vs " + pct(s.repeat30_peers) + " at peer stores.",
+      act:"Action (today): the store lead calls five lapsed wedding-season customers with the alteration-ready follow-up before closing." });
+  }
+  if(s.upcoming && s.upcoming.length){
+    out.push({ sev:"info", t:"Calendar context, not an alert",
+      why: s.upcoming.map(function(u){ return (u.festival ? u.festival : "wedding date") + " on " + dt(u.date); }).join("; ") + ". Expect swings; do not read them as performance.",
+      act:"" });
+  }
+  return out;
+}
+
+function attentionScore(a){ return a.reduce(function(n, x){ return n + (x.sev==="bad" ? 3 : x.sev==="warn" ? 2 : 0); }, 0); }
+
+/* ---------- morning brief ---------- */
+function buildBrief(){
+  var m = AGG.managers.filter(function(x){ return x.id === S.mgr; })[0];
+  var rows = m.stores.map(function(sid){
+    var a = storeAlerts(sid);
+    return { sid: sid, alerts: a, score: attentionScore(a), s: AGG.stores[sid] };
+  }).sort(function(x, y){ return y.score - x.score; });
+  S.brief = { mgr: m, rows: rows };
+  var h = "<p><b>" + esc(m.name) + "</b> (" + esc(m.city) + ") - brief for <b>Sat 31 Oct 2026</b>, generated on demand. " +
+    rows.filter(function(r){ return r.score > 0; }).length + " of " + rows.length + " stores need attention.</p>";
+  rows.forEach(function(r, i){
+    var s = r.s;
+    h += "<div class='alert " + (r.score ? (r.score >= 3 ? "bad" : "") : "info") + "'>" +
+      "<b class='t'><span class='rank'>#" + (i+1) + "</span> " + r.sid + " · " + esc(s.city) + " (" + esc(s.tier) + ") " +
+      "<span class='storehead' data-store='" + r.sid + "' style='color:var(--acc);text-decoration:underline'>open team actions</span></b>" +
+      "<span class='stat'>Conversion " + pct(s.conv) + " (peers " + pct(s.conv_peers) + ")</span>" +
+      "<span class='stat'>Items/bill " + num(s.ipb) + " (peers " + num(s.ipb_peers) + ")</span>" +
+      "<span class='stat'>Repeat-30 " + pct(s.repeat30) + " (peers " + pct(s.repeat30_peers) + ")</span>" +
+      "<span class='stat'>Revenue 28d Rs " + Math.round(s.rev28).toLocaleString("en-IN") + "</span>";
+    if(!r.alerts.length){
+      h += "<div class='why'>No alert: tracking at or above peers on all three levers. Name today's role models in the team view so others can copy them.</div>";
+    }
+    r.alerts.forEach(function(a){
+      h += "<div style='margin-top:6px'><b>" + esc(a.t) + "</b><div class='why'>" + esc(a.why) + "</div>" + (a.act ? "<div class='act'>" + esc(a.act) + "</div>" : "") + "</div>";
+    });
+    h += "</div>";
+  });
+  document.getElementById("briefOut").innerHTML = h;
+  Array.prototype.forEach.call(document.querySelectorAll(".storehead"), function(el){
+    el.onclick = function(){ buildTeam(el.getAttribute("data-store")); };
+  });
+  document.getElementById("btnAi").disabled = false;
+  document.getElementById("aiHint").innerText = "brief is ready";
+  document.getElementById("teamOut").innerHTML = "<p class='muted'>Open a store from the brief.</p>";
+  document.getElementById("aiOut").innerHTML = "";
+  setBadge("not drafted yet", "rule");
+}
+
+/* ---------- salesperson actions ---------- */
+function med(arr){ arr = arr.slice().sort(function(a,b){ return a-b; }); return arr.length ? arr[Math.floor(arr.length/2)] : null; }
+function buildTeam(sid){
+  var s = AGG.stores[sid];
+  var team = (s.team || []).slice().sort(function(a,b){ return b.bills - a.bills; });
+  if(!team.length){ document.getElementById("teamOut").innerHTML = "<p class='muted'>No rostered salespeople in the last 28 days.</p>"; return; }
+  var mBpd = med(team.map(function(t){ return t.bpd; }));
+  var mIpb = med(team.map(function(t){ return t.ipb || 0; }));
+  var mAtt = med(team.map(function(t){ return t.attach_rate == null ? -1 : t.attach_rate; }).filter(function(x){ return x >= 0; }));
+  var mJack = med(team.map(function(t){ return t.jacket_rate == null ? -1 : t.jacket_rate; }).filter(function(x){ return x >= 0; }));
+  var avgDisc = team.reduce(function(n, t){ return n + t.disc_pct; }, 0) / team.length;
+  var h = "<p><b>" + sid + " · " + esc(s.city) + "</b> - " + team.length + " salespeople rostered in the last 28 days. Store medians: " +
+    num(mBpd) + " bills/day, " + num(mIpb) + " items/bill" + (mAtt != null ? ", " + pct(mAtt,0) + " attach on sherwani" : "") + ".</p>";
+  h += "<table><tr><th>Salesperson</th><th>Days</th><th>Bills/day</th><th>Items/bill</th><th>Attach (sherwani set)</th><th>Disc %</th><th>Today's one action</th></tr>";
+  team.forEach(function(t){
+    var act, cls = "";
+    if(t.disc_pct > avgDisc + 3){
+      act = "Keep discounts under " + (avgDisc + 3).toFixed(1) + "% today; anything above needs the store lead's nod. Usual habit: " + t.disc_pct.toFixed(1) + "% vs store " + avgDisc.toFixed(1) + "%.";
+    } else if(mAtt != null && t.attach_rate != null && t.attach_rate < mAtt - 0.1){
+      act = "Today: bring the safa, mojari and mala to every sherwani trial without being asked. You attach on " + pct(t.attach_rate,0) + " of sherwani bills; store median is " + pct(mAtt,0) + ".";
+    } else if(mJack != null && t.jacket_rate != null && t.jacket_rate < mJack - 0.1){
+      act = "Today: show a jacket with every kurta set trial. You pair on " + pct(t.jacket_rate,0) + " of kurta bills; store median is " + pct(mJack,0) + ".";
+    } else if(t.ipb != null && t.ipb < 0.85 * mIpb){
+      act = "Today: add one more item to every second bill - start with the mojari at billing. Items/bill " + num(t.ipb) + " vs store median " + num(mIpb) + ".";
+    } else if(t.bpd < 0.8 * mBpd){
+      act = "Today: take the trial-room position 4-8 pm and ask for the next walk-in each round. " + num(t.bpd,1) + " bills/day vs store median " + num(mBpd,1) + ".";
+    } else {
+      var best = null;
+      if(mAtt != null && t.attach_rate != null && t.attach_rate >= mAtt + 0.1) best = "attach selling (" + pct(t.attach_rate,0) + " on sherwani bills)";
+      else if(t.ipb != null && t.ipb >= mIpb * 1.15) best = "basket building (" + num(t.ipb) + " items/bill)";
+      else if(t.bpd >= mBpd * 1.2) best = "floor conversion (" + num(t.bpd,1) + " bills/day)";
+      act = best ? "On track - name " + t.name + " as today's role model for " + best + " at the morning huddle, and pair one junior with them for the first hour."
+                 : "On track across the three levers. Keep the standard today; no coaching note needed.";
+      cls = " style='background:#f4faf5'";
+    }
+    h += "<tr" + cls + "><td><b>" + esc(t.name) + "</b><br><span class='muted'>" + t.id + "</span></td><td>" + t.days_worked + "</td><td>" + num(t.bpd,1) + "</td><td>" + num(t.ipb) + "</td><td>" + (t.attach_rate == null ? "n/a" : pct(t.attach_rate,0)) + "</td><td>" + t.disc_pct.toFixed(1) + "%</td><td>" + esc(act) + "</td></tr>";
+  });
+  h += "</table><p class='muted'>Peer basis: same store, last 28 days of roster. People with too few recent shifts are compared on rates, not totals.</p>";
+  document.getElementById("teamOut").innerHTML = h;
+  document.getElementById("teamOut").scrollIntoView({ block:"start", behavior:"instant" });
+}
+
+/* ---------- optional AI manager note ---------- */
+function setBadge(txt, cls){ document.getElementById("aiBadge").innerHTML = "<span class='chip " + cls + "'>" + esc(txt) + "</span>"; }
+function fallbackNote(){
+  var b = S.brief, top = b.rows.filter(function(r){ return r.score > 0; })[0];
+  var lines = ["Morning brief for " + b.mgr.name + " (" + b.mgr.city + "), Sat 31 Oct 2026:"];
+  b.rows.slice(0, 3).forEach(function(r, i){
+    var a0 = r.alerts[0];
+    lines.push((i+1) + ". " + r.sid + " - " + (a0 ? a0.t + " (" + a0.why + ")" : "no alert, tracking at peers") + ".");
+  });
+  if(top) lines.push("First action: " + top.alerts[0].act);
+  lines.push("Full detail in the Store Coach app. - drafted by the rule-based template");
+  return lines.join("\n");
+}
+document.getElementById("btnAi").onclick = function(){
+  var b = S.brief;
+  if(!b) return;
+  var out = document.getElementById("aiOut");
+  setBadge("drafting...", "rule");
+  out.innerHTML = "";
+  var bits = b.rows.slice(0, 4).map(function(r, i){
+    var a0 = r.alerts[0];
+    return (i+1) + ". " + r.sid + " " + r.s.city + ": " + (a0 ? a0.t + " - " + a0.why : "no alert, at peers on all levers");
+  });
+  var body = { system: "You are a helpful assistant.",
+    user: "Facts: retail area manager morning brief for " + b.mgr.name + ", city " + b.mgr.city + ", date Sat 31 Oct 2026. Stores needing attention: " + bits.join(" ") + ". Write a 4-sentence WhatsApp-style morning note to the manager in plain words, naming the top store and its action." };
+  function showFallback(){
+    setBadge("rule-based draft (AI unavailable)", "rule");
+    out.innerHTML = "<pre>" + esc(fallbackNote()) + "</pre>";
+  }
+  function attempt(n){
+    var ctrl = new AbortController();
+    var to = setTimeout(function(){ ctrl.abort(); }, 20000);
+    fetch("https://vch3-procure-proxy.santosh-k.workers.dev/chat", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: ctrl.signal
+    }).then(function(r){
+      clearTimeout(to);
+      if(!r.ok) throw new Error("proxy " + r.status);
+      return r.json();
+    }).then(function(j){
+      if(!j.content) throw new Error("empty");
+      setBadge("AI draft, Sarvam 105B via hardened proxy", "ai");
+      out.innerHTML = "<pre>" + esc(j.content) + "</pre>";
+    }).catch(function(){
+      clearTimeout(to);
+      if(n > 1) attempt(n - 1); else showFallback();
+    });
+  }
+  attempt(3);
+};
+</script>
+</body>
+</html>
