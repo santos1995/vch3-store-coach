@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: write
+  contents: read   # generation only; no run ever writes to this repo
 
 jobs:
   briefs:
@@ -18,14 +18,16 @@ jobs:
           node-version: '22'
       - name: Generate all manager briefs and salesperson actions
         run: node generate_briefs.js
-      - name: Commit generated briefs and weekly state
-        run: |
-          git config user.name "store-coach-scheduler"
-          git config user.email "store-coach-scheduler@users.noreply.github.com"
-          git add generated state
-          if git diff --cached --quiet; then
-            echo "No change in generated briefs or weekly state."
-          else
-            git commit -m "Scheduled briefs: run $(date -u '+%Y-%m-%d %H:%M UTC') (data as of 2026-10-31, fixed synthetic snapshot)"
-            git push
-          fi
+      - name: Publish generated briefs and weekly state as a run artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: store-coach-briefs
+          path: |
+            generated/
+            state/
+          retention-days: 30
+# Hackathon event rule 5: no commits or pushes after the 4:45 pm lock. This
+# workflow therefore has no git write step on ANY run - scheduled or manual -
+# so no future fire can push after the deadline. The generated/ and state/
+# folders committed in this repo are the pre-lock verification outputs
+# (manual dispatches #1 and #2 on 21 Nov 2026, before the lock).
