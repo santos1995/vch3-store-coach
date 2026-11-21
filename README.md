@@ -11,7 +11,10 @@ Built from scratch at Vibe Coders Hackathon Edition 3 (Kolkata, 21 Nov 2026) for
 ## Working demo
 The first manager's brief generates automatically when the page opens. It refreshes at the next local day while the page remains open. Pick another manager to inspect their stores. The data snapshot stays fixed at 31 Oct 2026. No real messages are sent.
 
-- Up to five manager issues, ordered by rough rupee scenarios. Their identities are retained per manager for snapshot week 2026-W44 in this browser's local storage. Other store details are diagnostics, not more assignments.
+- Up to five manager issues, ordered by rough rupee scenarios. Each issue names its lever: more bills, bigger baskets, or more repeat customers. Their identities are retained per manager for snapshot week 2026-W44 in this browser's local storage. Other store details are diagnostics, not more assignments.
+- Staffing issues are flagged when an experienced seller leaves the roster (present earlier in the window, then no roster or bills for at least 14 days, with at least store-median productivity; the pack's LKO-02 demonstrates this) and when a reliable seller keeps missing shifts (recent window, strong productivity, repeated unexplained off days).
+- A city-level market note appears in a manager brief only when a whole city's conversion or footfall falls across most of its stores. This pack shows no such slowdown, so no market note is generated.
+- Salespeople who avoid a whole category versus their city median (their share at most half the city's, with the city share at least 15%) get a category-coaching action naming the category and both shares.
 - Store conversion and basket comparisons exclude dates marked festival or wedding in the supplied state calendar. Same-city peers use the same state calendar and period. This is a date filter, not a causal seasonal model.
 - Bills exceeding footfall, zero/negative footfall and missing footfall with bills suppress that store's performance alerts. The pack's PAT-03 demonstrates this.
 - Each salesperson gets a short action and a named same-store peer. Minimum samples: 7 shifts and 10 bills; 5 category bills for attachment coaching; 20 eligible customers for return-rate coaching. Actions are capped at 60 words.
