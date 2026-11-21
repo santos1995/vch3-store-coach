@@ -2,7 +2,7 @@
 
 Live app: https://santos1995.github.io/vch3-store-coach/
 
-Demo highlights (43 seconds, silent screen recording): https://youtu.be/8I59mi2RoLw
+Demo highlights (44 seconds, silent screen recording): https://youtu.be/4NJAU0OIFzQ
 
 Logic explanation guide (English PDF): [Manyavar-Store-Coach-Logic-English.pdf](./Manyavar-Store-Coach-Logic-English.pdf)
 
@@ -34,7 +34,7 @@ Outputs are committed back to this repo by the workflow. It was verified with a 
 ## Remaining limits
 This is a fixed-data demo with an in-repo scheduled generator, not a live delivery service. The scheduled job re-runs the same fixed snapshot every morning; there is no live data refresh, cross-device weekly budget, actual coaching intervention, or new week-later observation, and briefs are committed to the repo, not delivered to managers. Clearing site data resets the page's local assignments; scheduled-run state lives in state/weekly.json. Real daily delivery to managers requires an approved live data source and destination.
 
-Rupee figures are assumptions for ordering, not measured losses or guaranteed gains. Staffing uses a labelled 10% of average daily sales scenario. Stock is not joined; staff must check availability. Category choice is not a full assortment-avoidance model. The 43-second video was recorded before the staffing, lever-label and category additions; the live app linked above is the current build.
+Rupee figures are assumptions for ordering, not measured losses or guaranteed gains. Staffing uses a labelled 10% of average daily sales scenario. Stock is not joined; staff must check availability. Category choice is not a full assortment-avoidance model. The 44-second video shows the final working state, including the scheduled-generation output; the live app linked above is the current build.
 
 ## Data and repository
 Snapshot: 31 Oct 2026, the pack's "today", not the actual event date. The pack says its data is synthetic. Data and briefs belong to Vedant Fashions Limited. Only small derived aggregates are committed as data.js. No raw CSVs, customer IDs, passwords or keys are included. Aggregation was run locally. The supplied calendar is the source of event dates; no dates are inferred from model knowledge.
