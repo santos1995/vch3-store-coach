@@ -1,12 +1,22 @@
 # Store Coach - Manyavar (VCH3)
 
+Store Coach turns a store chain's sales, roster and calendar data into a morning plan: up to five issues for each area manager, ranked by rough rupee impact, and one concrete coaching action per salesperson. It was designed and built in one day at Vibe Coders Hackathon Edition 3 (Kolkata, 21 Nov 2026) for the Vedant Fashions Store Coach problem statement. The app is a static page, and a GitHub Actions schedule regenerates every brief each morning using the same rule code. It runs on the event's fixed synthetic dataset; rupee figures are ranking assumptions, not measured results.
+
 Live app: https://santos1995.github.io/vch3-store-coach/
 
 Demo highlights (42 seconds, silent screen recording): https://youtu.be/Uz93ra6WelA
 
+Narrated demo with English voice and captions: https://youtu.be/Ef_MLaS_LSw
+
 Logic explanation guide (English PDF): [Manyavar-Store-Coach-Logic-English.pdf](./Manyavar-Store-Coach-Logic-English.pdf)
 
 Built from scratch at Vibe Coders Hackathon Edition 3 (Kolkata, 21 Nov 2026) for case study A: Store Coach, Vedant Fashions Limited.
+
+## Screenshots
+
+![Manager morning brief, generated automatically in the browser](https://github.com/user-attachments/assets/aff0fa29-1175-40a8-aacb-4d9fa3eeeea4)
+
+![Store cards with metrics and one action per issue](https://github.com/user-attachments/assets/4efc8025-3a2f-471a-85fb-221d78cecc60)
 
 ## Working demo
 The first manager's brief generates automatically when the page opens. It refreshes at the next local day while the page remains open. Pick another manager to inspect their stores. The data snapshot stays fixed at 31 Oct 2026. No real messages are sent.
